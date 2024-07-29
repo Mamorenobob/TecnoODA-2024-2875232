@@ -1,0 +1,167 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('imagenes/tecno.png'); /* Reemplaza con la URL de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+}
+
+header {
+    background-color: #333; /* Negro para el header */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    color: #337ab7; /* Azul para el hover */
+}
+
+.descripcion {
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Blanco con transparencia para el texto */
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.descripcion h2 {
+    color: #333;
+}
+
+.descripcion p {
+    color: #666;
+}
+
+.formulario-login, .formulario-registro {
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Blanco con transparencia para el texto */
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.formulario-login h2, .formulario-registro h2 {
+    color: #337ab7; /* Azul para los títulos */
+}
+
+.formulario-login label, .formulario-registro label {
+    color: #666;
+}
+
+.formulario-login input, .formulario-registro input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulario-login input[type="submit"], .formulario-registro input[type="submit"] {
+    background-color: #337ab7; /* Azul para los botones */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formulario-login input[type="submit"]:hover, .formulario-registro input[type="submit"]:hover {
+    background-color: #23527c; /* Azul oscuro para el hover de los botones */
+}
+
+.boton-login, .boton-registro {
+    background-color: #337ab7; /* Azul para los botones */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.boton-login:hover, .boton-registro:hover {
+    background-color: #23527c; /* Azul oscuro para el hover de los botones */
+}
+
+/* Estilos para el slider */
+.slider-container {
+    width: 80%;
+    margin: 40px auto;
+    position: relative;
+}
+
+.slider {
+    width: 100%;
+    height: 300px; /* Ajusta la altura del slider */
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.slide {
+    width: 100%;
+    height: 300px; /* Ajusta la altura de las diapositivas */
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.slider-nav button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.slider-nav button:hover {
+    opacity: 1;
+}
+
+/* Estilos para las diapositivas */
+.slide-1 {
+    background-image: url('imagenes/LOGO.jpg'); /* Reemplaza con la URL de la imagen de la diapositiva 1 */
+}
+
+.slide-2 {
+    background-image: url('imagenes/LOGO.jpg'); /* Reemplaza con la URL de la imagen de la diapositiva 2 */
+}
