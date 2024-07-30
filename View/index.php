@@ -8,6 +8,7 @@
     include '../Controller/conexion.php';
     $queryCargo = "SELECT ID, cargo FROM cargo";
     $resultCargo = mysqli_query($conexion, $queryCargo);
+    $resultCargo2 = mysqli_query($conexion, $queryCargo);
     
     $queryDoc = "SELECT ID, documento FROM documento";
     $resultDoc = mysqli_query($conexion, $queryDoc);
@@ -60,8 +61,8 @@
                     <select name="Cargo" required>
                         <option value="" selected disabled>Cargo</option>
                         <?php
-                        while ($rowCargo = mysqli_fetch_assoc($resultCargo)) {
-                            echo '<option value="' . $rowCargo['ID'] . '">' . $rowCargo['cargo'] . '</option>';
+                        while ($rowCargo2 = mysqli_fetch_assoc($resultCargo)) {
+                            echo '<option value="' . $rowCargo2['ID'] . '">' . $rowCargo2['cargo'] . '</option>';
                         }
                         ?>
                     </select>
