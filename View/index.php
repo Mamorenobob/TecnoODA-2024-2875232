@@ -62,7 +62,7 @@
                     <select name="Cargo" required>
                         <option value="" selected disabled>Cargo</option>
                         <?php
-                        while ($rowCargo2 = mysqli_fetch_assoc($resultCargo)) {
+                        while ($rowCargo2 = mysqli_fetch_assoc($resultCargo2)) {
                             echo '<option value="' . $rowCargo2['ID'] . '">' . $rowCargo2['cargo'] . '</option>';
                         }
                         ?>
