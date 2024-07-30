@@ -8,7 +8,8 @@
     include '../Controller/conexion.php';
     $queryCargo = "SELECT ID, cargo FROM cargo";
     $resultCargo = mysqli_query($conexion, $queryCargo);
-    $resultCargo2 = mysqli_query($conexion, $queryCargo);
+    $queryCargo2 = "SELECT ID, cargo FROM cargo";
+    $resultCargo2 = mysqli_query($conexion, $queryCargo2);
     
     $queryDoc = "SELECT ID, documento FROM documento";
     $resultDoc = mysqli_query($conexion, $queryDoc);
