@@ -13,6 +13,6 @@
 </style>
 <header>
     <div class="header">
-        <img src="img/Logotipo.jfif" alt="">
+        <img src="../Images/Logotipo.jfif" alt="">
     </div>
 </header>
