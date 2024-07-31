@@ -78,9 +78,9 @@
                         }
                         ?>
                     </select>
-                    <input type="number" name="Num_Doc" placeholder="Número de Documento" pattern="[0-9]" required>
+                    <input type="text" name="Num_Doc" placeholder="Número de Documento" pattern="[0-9]" required>
                     <input type="text" name="Correo" placeholder="Correo Electrónico" required>
-                    <input type="number" name="Tel" placeholder="Teléfono" pattern="[0-9]" required>
+                    <input type="text" name="Tel" placeholder="Teléfono" pattern="[0-9]" required>
                     <input type="password" name="pw" placeholder="Contraseña" required>
                     <button type="submit">Registrarse</button>
                 </form>
