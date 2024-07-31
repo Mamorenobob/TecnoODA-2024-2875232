@@ -45,7 +45,7 @@
             <div class="contenedor-login-register">
                 <form action="login.php" class="formulario__login" method="POST">
                     <h2>Iniciar Sesion</h2>
-                    <select name="cargo" required>
+                    <select name="cargo" required style="cursor: pointer;">
                         <option value="" selected disabled>Cargo</option>
                         <?php
                         while ($rowCargo = mysqli_fetch_assoc($resultCargo)) {
@@ -59,7 +59,7 @@
                 </form>
                 <form method="POST" action="registro.php" class="formulario__register">
                     <h2>Registrarse</h2>
-                    <select name="Cargo" required>
+                    <select name="Cargo" required style="cursor: pointer;">
                         <option value="" selected disabled>Cargo</option>
                         <?php
                         while ($rowCargo2 = mysqli_fetch_assoc($resultCargo2)) {
@@ -70,7 +70,7 @@
                     <input type="text" name="Nombre" placeholder="Primer Nombre" required>
                     <input type="text" name="Apellido" placeholder="Primer Apellido" required>
                     <input type="text" name="Usuario" placeholder="Usuario" required>
-                    <select name="Tipo_Doc" required>
+                    <select name="Tipo_Doc" required style="cursor: pointer;">
                         <option value="" selected disabled>Tipo de Documento</option>
                         <?php
                         while ($rowDoc = mysqli_fetch_assoc($resultDoc)) {
@@ -78,10 +78,16 @@
                         }
                         ?>
                     </select>
-                    <input type="text" name="Num_Doc" placeholder="Número de Documento" pattern="[0-9]" required>
-                    <input type="text" name="Correo" placeholder="Correo Electrónico" required>
-                    <input type="text" name="Tel" placeholder="Teléfono" pattern="[0-9]" required>
-                    <input type="password" name="pw" placeholder="Contraseña" required>
+                    <input type="number" name="Num_Doc" placeholder="Numero de Documento" step="any" required>
+                    <input type="email" name="Correo" placeholder="Correo Electrónico" required>
+                    <input type="number" name="Tel" placeholder="Teléfono" required>
+                    <div class="pw">
+                       <input type="password" name="pw" id="contrasena" placeholder="Contraseña" required autocomplete="off">
+                       <img id="imagenOjo" src="../Images/OjoCerrado.jpeg" height="40px" width="5px" 
+                        style="position: absolute; top: 77.5%; right: 10px; transform: translateY(-50%); cursor: pointer;"
+                        onmousedown="mostrarContrasena()" 
+                        onmouseup="ocultarContrasena()">
+                    </div>
                     <button type="submit">Registrarse</button>
                 </form>
             </div>
@@ -96,3 +102,17 @@
     <script src="../Model/JavaScript/Script.js"></script>
 </body>
 </html>
+<script>
+    let contrasenaInput = document.getElementById("contrasena");
+    let imagenOjo = document.getElementById("imagenOjo");
+
+    function mostrarContrasena() {
+        contrasenaInput.type = "text";
+        imagenOjo.src = "Images/OjoAbierto.jpeg"; // Cambia la imagen al presionar
+    }
+  
+    function ocultarContrasena() {
+        contrasenaInput.type = "password";
+        imagenOjo.src = "Images/OjoCerrado.jpeg"; // Cambia la imagen al soltar
+}
+</script>
