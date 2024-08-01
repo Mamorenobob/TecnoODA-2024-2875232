@@ -11,89 +11,121 @@
 
     include '../Controller/conexion.php';
     ?>
-
     <style>
         body {
-    background-color: #f0f0f0; /* Color gris claro para el fondo de toda la página */
-    background: linear-gradient(to bottom, #000000, #7BB4E3);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-}
-.todo{
-    background-color: white;
-    border: 10px;
-    width: 450px;
-    height: 750px;
-    display: none;
-}
-    .contenedor{
-        width: 400px;
-        backdrop-filter: blur(15px);
-        background-color: rgba(0,0,0,0.5);
-        background: linear-gradient(to right, #000000, #7BB4E3);
-        height: 720px;
-        width: 400px;
-        text-align: center;
-        border-radius: 10px;
-        color: #f0f0f0;
-    }
-    .hidden {
-    display: none;
-}
-    
+            background-color: #f0f0f0; /* Color gris claro para el fondo de toda la página */
+            background: linear-gradient(to bottom, #33afff, #7BB4E3);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        #formContainer {
+            width: 800px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 20px;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+            opacity: 0;
+            visibility: hidden;
+            text-align: center;
+            
+        }
+        #formContainer.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        button {
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .w-25 {
+            width: 25%;
+        }
+        
+        /* Estilos para ocultar los controles en los inputs de tipo number */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield; /* Firefox */
+        }
     </style>
 </head>
 <body>
-
-<div class="container mt-5 position.relative">
-        <div class="row">
-            <div class="col">
-            <form action="#" method="post" class registro>
-            <button id="toggleButton">Donde</button>
-            </form>
+    <button id="toggleButton">Mostrar Formulario</button>
     <center>
-<div class="todo">
-    <div id="formContainer" class="hidden">
-            <form action="#" method="post" class registro>
-                
-                        <label for="">Nombre:</label>
-                        <input type="text" class="form-control">
-                        <label for="">cantidad:</label>
-                        <input type="numero" class="form-control w-25">
-                        <label for="">proveedor:</label>
-                        <input type="numero" class="form-control w-25">
-                        <label for="">valor:</label>
-                        <input type="numero" class="form-control w-25">
-                        <label for="">ubicacion:</label>
-                        <input type="numero" class="form-control w-25">
-                        <label for="">fecha:</label>
-                        <input type="numero" class="form-control w-25">
-                        <label for="">marca:</label>
-                        <input type="numero" class="form-control w-25">
-                        <label for="">codigo:</label>
-                        <input type="numero" class="form-control w-25">
-                        <label for="">codigo_de_barras:</label>
-                        <input type="numero" class="form-control w-25">
-                        <label for="">descripcion:</label>
-                        <input type="numero" class="form-control w-25">
-                        <label for="">categoria:</label>
-                        <input type="numero" class="form-control w-25">
-                    <input type="submit" name="accion" value="agregar producto">
-                    <input type="submit" name="accion" value="eliminar">
-                    <input type="submit" name="accion" value="editar">
-                    
-            </form>
+    <div id="formContainer">
+        <center>
+        <form action="#" method="POST">
+            <h1>Registro de Productos</h1>
+            <input type="text" id="nombre" placeholder="Nombre" class="form-control w-25">
+            <input type="number" id="cantidad" placeholder="Cantidad" class="form-control w-25">
+            <input type="text" id="proveedor" placeholder="Proveedor" class="form-control w-25">
+            <input type="price" id="valor" placeholder="Valor" class="form-control w-25">
+            <input type="text" id="ubicacion" placeholder="Ubicación" class="form-control w-25">
+            <input type="date" id="fecha" placeholder="Fecha" class="form-control w-25">
+            <input type="text" id="marca" placeholder="Marca" class="form-control w-25">
+            <input type="number" id="codigo" placeholder="Código" class="form-control w-25">
+            <input type="number" id="codigo_barras" placeholder="Código de barras" class="form-control w-25">
+            <input type="text" id="descripcion" placeholder="Descripción" class="form-control w-25">
+            
+            <input type="submit" name="accion" value="Agregar Producto">
+            <input type="submit" name="accion" value="Eliminar">
+            <input type="submit" name="accion" value="Editar">
+            <button type="button" id="closeButton">Cerrar</button>
+        </form>
+        </center>
     </div>
-</div>
-</center>
+    </center>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('toggleButton');
+            const formContainer = document.getElementById('formContainer');
+            const closeButton = document.getElementById('closeButton');
 
+            toggleButton.addEventListener('click', () => {
+                if (formContainer.classList.contains('open')) {
+                    formContainer.classList.remove('open');
+                    toggleButton.textContent = 'Mostrar Formulario';
+                } else {
+                    formContainer.classList.add('open');
+                    toggleButton.textContent = 'Ocultar Formulario';
+                }
+            });
 
-
-
-
+            closeButton.addEventListener('click', () => {
+                formContainer.classList.remove('open');
+                toggleButton.textContent = 'Mostrar Formulario';
+            });
+        });
+    </script>
+</body>
+</html>
 <?php
 /*if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $accion = $_POST['accion'];
@@ -127,18 +159,3 @@
     }
 }*/
 ?>
-</body>
-</html>
-<script>
-    document.getElementById('toggleButton').addEventListener('click', function() {
-        const formContainer = document.getElementById('formContainer');
-        
-        if (formContainer.classList.contains('hidden')) {
-            formContainer.classList.remove('hidden');
-            this.textContent = 'Ocultar Formulario';
-        } else {
-            formContainer.classList.add('hidden');
-            this.textContent = 'Mostrar Formulario';
-        }
-    });
-    </script>
