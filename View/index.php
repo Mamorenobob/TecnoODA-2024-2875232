@@ -25,15 +25,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Model/Css/Style.css">
     <style>
-        /* Estilos para ocultar los controles en los inputs de tipo number */
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+        /* Ocultar los botones de incremento/decremento en los inputs de tipo number */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
-    input[type="number"] {
-        -moz-appearance: textfield; /* Firefox */
+        input[type="number"] {
+            -moz-appearance: textfield; /* Firefox */
 }
     </style>
 </head>
@@ -66,7 +66,13 @@
                         ?>
                     </select>
                     <input type="text"  name="Usuario" placeholder="Usuario/Correo Electronico" required>
-                    <input type="password" name="contrasenia" placeholder="Contraseña" required>
+                    <div class="pw">
+                       <input type="password" name="contrasenia" id="contrasena" placeholder="Contraseña" required autocomplete="off">
+                       <img id="imagenOjo1" src="../Images/Ojo1.png" height="40px" width="5px" 
+                        style="position: absolute; top: 61%; right: 10px; transform: translateY(-50%); cursor: pointer;"
+                        onmousedown="mostrarContrasena()" 
+                        onmouseup="ocultarContrasena()">
+                    </div>
                     <button>Iniciar Sesion</button>
                 </form>
                 <form method="POST" action="registro.php" class="formulario__register">
@@ -95,8 +101,8 @@
                     <input type="number" name="Tel" placeholder="Teléfono" required>
                     <div class="pw">
                        <input type="password" name="pw" id="contrasena" placeholder="Contraseña" required autocomplete="off">
-                       <img id="imagenOjo" src="../Images/" 
-                        style=" height: 40px;; width:5px;position: absolute; top: 77.5%; right: 10px; transform: translateY(-50%); cursor: pointer;"
+                       <img id="imagenOjo" src="../Images/Ojo1.png" height="40px" width="5px" 
+                        style="position: absolute; top: 77.5%; right: 10px; transform: translateY(-50%); cursor: pointer;"
                         onmousedown="mostrarContrasena()" 
                         onmouseup="ocultarContrasena()">
                     </div>
@@ -117,14 +123,17 @@
 <script>
     let contrasenaInput = document.getElementById("contrasena");
     let imagenOjo = document.getElementById("imagenOjo");
+    let imagenOjo1 = document.getElementById("imagenOjo1");
 
     function mostrarContrasena() {
         contrasenaInput.type = "text";
-        imagenOjo.src = "Images/OjoAbierto.jpeg"; // Cambia la imagen al presionar
+        imagenOjo.src = "../Images/Ojo2.png"; // Cambia la imagen al presionar
+        imagenOjo1.src = "../Images/Ojo2.png";
     }
   
     function ocultarContrasena() {
         contrasenaInput.type = "password";
-        imagenOjo.src = "Images/OjoCerrado.jpeg"; // Cambia la imagen al soltar
+        imagenOjo.src = "../Images/Ojo1.png"; // Cambia la imagen al soltar
+        imagenOjo1.src = "../Images/Ojo1.png";
 }
 </script>
