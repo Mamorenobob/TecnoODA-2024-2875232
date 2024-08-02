@@ -1,0 +1,5 @@
+body {
+    background-image: url('../TecnoODA/Images/Fondo1-bell.png');
+   background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center center; /* Centra la imagen */
+}
