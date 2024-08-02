@@ -1,23 +1,43 @@
 <?php 
     session_start();
+    require '../Controller/conexion.php'; // Asegúrate de que esta ruta sea correcta
 
-    include '../Controller/conexion.php';
+    // Crear una instancia de la clase Database y conectar
+    $db = new Database();
+    $conexion = $db->conectar();
 
-    $Usuario = $_POST["Usuario"];
-    $contrasena = $_POST["contrasenia"];
-    $cargo = $_POST["cargo"];
-
-    $validar_login = mysqli_query($conexion, "SELECT * FROM registro WHERE Cargo ='$cargo' AND Contrasenia = '$contrasena' AND Usuario ='$Usuario' OR Correo = '$Usuario'");
-    if (mysqli_num_rows($validar_login) > 0){
-        $_SESSION['Usuario'] = $Usuario;
-        header("location: bienvenido.php");
-        exit();
+    // Verificar si la conexión fue exitosa
+    if ($conexion === null) {
+        die('Error de conexión a la base de datos');
     }
-    else{
-        echo "<script>
-        alert('Usuario incorrecto, por favor verifique los datos ingresados');
-        window.location = 'index.php';
-        </script>";
-        exit();
+
+    // Verificar si el usuario ya está autenticado
+    if (isset($_SESSION['Usuario'])) {
+        header("location:bienvenido.php");
+        exit(); // Asegúrate de que el script no continúe ejecutándose después del redireccionamiento
+    }
+
+    // Procesar el inicio de sesión
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $usuario = $_POST['Usuario'];
+        $contrasenia = $_POST['contrasenia'];
+
+        // Prepara la consulta
+        $query = "SELECT * FROM registro WHERE usuario = :usuario AND contrasenia = :contrasenia";
+        $stmt = $conexion->prepare($query);
+        $stmt->bindParam(':usuario', $usuario);
+        $stmt->bindParam(':contrasenia', $contrasenia);
+        
+        // Ejecutar la consulta
+        $stmt->execute();
+        
+        // Verificar si se encontró un resultado
+        if ($stmt->rowCount() > 0) {
+            $_SESSION['Usuario'] = $usuario;
+            header("Location: bienvenido.php");
+            exit();
+        } else {
+            echo 'Usuario o contraseña incorrectos';
+        }
     }
 ?>

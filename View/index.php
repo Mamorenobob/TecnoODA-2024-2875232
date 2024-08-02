@@ -1,19 +1,33 @@
 <?php
     session_start();
+    require '../View/cortina.php';
+    require '../View/Header.php';
+    require '../Controller/conexion.php';
+    $db = new Database();
+    $conexion = $db->conectar();
+    if($conexion === null){
+        die("Error de la conexion a la base de datos");
+    }
+    
     if(isset($_SESSION['Usuario'])){
         header("location:bienvenido.php");
     }
-    include_once "../View/cortina.php";
-    include_once "../View/Header.php";
-    include '../Controller/conexion.php';
     $queryCargo = "SELECT ID, cargo FROM cargo";
-    $resultCargo = mysqli_query($conexion, $queryCargo);
+    $stmtCargo = $conexion->prepare($queryCargo);
+    $stmtCargo->execute();
+    $resultCargo = $stmtCargo->fetchAll(PDO::FETCH_ASSOC);
+
     $queryCargo2 = "SELECT ID, cargo FROM cargo";
-    $resultCargo2 = mysqli_query($conexion, $queryCargo2);
-    
+    $stmtCargo2 = $conexion->prepare($queryCargo2);
+    $stmtCargo2->execute();
+    $resultCargo2 = $stmtCargo2->fetchAll(PDO::FETCH_ASSOC);
+
     $queryDoc = "SELECT ID, documento FROM documento";
-    $resultDoc = mysqli_query($conexion, $queryDoc);
-    ?>
+    $stmtDoc = $conexion->prepare($queryDoc);
+    $stmtDoc->execute();
+    $resultDoc = $stmtDoc->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,11 +73,9 @@
                     <h2>Iniciar Sesion</h2>
                     <select name="cargo" required style="cursor: pointer;">
                         <option value="" selected disabled>Cargo</option>
-                        <?php
-                        while ($rowCargo = mysqli_fetch_assoc($resultCargo)) {
-                            echo '<option value="' . $rowCargo['ID'] . '">' . $rowCargo['cargo'] . '</option>';
-                        }
-                        ?>
+                        <?php foreach ($resultCargo as $rowCargo): ?>
+                            <option value="<?php echo htmlspecialchars($rowCargo['ID']); ?>"><?php echo htmlspecialchars($rowCargo['cargo']); ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <input type="text"  name="Usuario" placeholder="Usuario/Correo Electronico" required>
                     <div class="pw">
@@ -79,22 +91,18 @@
                     <h2>Registrarse</h2>
                     <select name="Cargo" required style="cursor: pointer;">
                         <option value="" selected disabled>Cargo</option>
-                        <?php
-                        while ($rowCargo2 = mysqli_fetch_assoc($resultCargo2)) {
-                            echo '<option value="' . $rowCargo2['ID'] . '">' . $rowCargo2['cargo'] . '</option>';
-                        }
-                        ?>
+                        <?php foreach ($resultCargo2 as $rowCargo2): ?>
+                            <option value="<?php echo htmlspecialchars($rowCargo2['ID']); ?>"><?php echo htmlspecialchars($rowCargo2['cargo']); ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <input type="text" name="Nombre" placeholder="Primer Nombre" required>
                     <input type="text" name="Apellido" placeholder="Primer Apellido" required>
                     <input type="text" name="Usuario" placeholder="Usuario" required>
                     <select name="Tipo_Doc" required style="cursor: pointer;">
                         <option value="" selected disabled>Tipo de Documento</option>
-                        <?php
-                        while ($rowDoc = mysqli_fetch_assoc($resultDoc)) {
-                            echo '<option value="' . $rowDoc['ID'] . '">' . $rowDoc['documento'] . '</option>';
-                        }
-                        ?>
+                        <?php foreach ($resultDoc as $rowDoc): ?>
+                            <option value="<?php echo htmlspecialchars($rowDoc['ID']); ?>"><?php echo htmlspecialchars($rowDoc['documento']); ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <input type="number" name="Num_Doc" placeholder="Numero de Documento" step="any" required>
                     <input type="email" name="Correo" placeholder="Correo Electrónico" required>
@@ -114,7 +122,7 @@
     <br><br><br><br><br>    <br><br><br><br><br>    <br><br><br><br><br>    <br><br><br><br><br>    <br><br><br><br><br>
     <footer>
         <?php
-        include_once("../View/Footer.php");
+            require '../View/Footer.php';
         ?>
     </footer>
     <script src="../Model/JavaScript/Script.js"></script>
