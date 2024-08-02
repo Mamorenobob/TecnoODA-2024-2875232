@@ -2,7 +2,7 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('imagenes/tecno.png'); /* Reemplaza con la URL de tu imagen de fondo */
+    background-image: url('../../Images/LOGO.jpg'); /* Reemplaza con la URL de tu imagen de fondo */
     background-size: cover;
     background-position: center;
     overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
@@ -159,9 +159,22 @@ header nav a:hover {
 
 /* Estilos para las diapositivas */
 .slide-1 {
-    background-image: url('imagenes/LOGO.jpg'); /* Reemplaza con la URL de la imagen de la diapositiva 1 */
+    background-image: url('../../Images/LOGO.jpg'); /* Reemplaza con la URL de la imagen de la diapositiva 1 */
 }
 
 .slide-2 {
-    background-image: url('imagenes/LOGO.jpg'); /* Reemplaza con la URL de la imagen de la diapositiva 2 */
+    background-image: url('../../Images/LOGO.jpg'); /* Reemplaza con la URL de la imagen de la diapositiva 2 */
+}
+.boton-al-login{
+    background-color: #337ab7;
+    border: none;
+    color: #ddd;
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 12px;
+    font-family: Arial, sans-serif;
+    position: fixed;
+    top: 10px;
+    right: 9%;
 }
