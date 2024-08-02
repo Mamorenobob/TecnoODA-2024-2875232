@@ -81,11 +81,12 @@
                     <div class="pw">
                        <input type="password" name="contrasenia" id="contrasena" placeholder="Contraseña" required autocomplete="off">
                        <img id="imagenOjo1" src="../Images/OjoCerrado.jpeg" height="10%" width="5%" 
-                        style="position: absolute; top: 61%; right: 10px; transform: translateY(-50%); cursor: pointer;"
+                        style="position: absolute; top: 59%; right: 10px; transform: translateY(-50%); cursor: pointer;"
                         onmousedown="mostrarContrasena()" 
                         onmouseup="ocultarContrasena()">
                     </div>
                     <button>Iniciar Sesion</button>
+                    <a href="RecuperarContraseña.php"><h4>Restablecer contraseña</h4></a>
                 </form>
                 <form method="POST" action="registro.php" class="formulario__register">
                     <h2>Registrarse</h2>
