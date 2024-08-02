@@ -4,44 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Inicio</title>
-    <link rel="stylesheet" href="Style2.css">
+    <link rel="stylesheet" href="../Model/Css/Style2.css">
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="#" class="boton-login" onclick="mostrarLogin()">Iniciar Sesión</a></li>
-            </ul>
+            <!--<a href="../View/index.php" class="boton-al-login"> Ir al Login</a>-->
+            <!--<a href="/View/index.php"><button>Registrate aqui :3</button></a>-->
+            <a href="http://localhost/TecnoODA/View/Index.PHP" target="_blank">
+                <button style="background-color: #337ab7; color: #fff; padding: 10px 20px; border: none; border-radius: 5px;">Registrate aqui :3</button>
+              </a>
         </nav>
     </header>
     <main>
         <section class="descripcion">
             <div class="slider-container">
                 <div class="slider-item">
-                    <!--<img src="imagenes/LOGO.jpg" alt="Imagen 1">-->
+                    <img src="../Images/logo.png" alt="Imagen 1">
                     <h2>Bienvenido a nuestra aplicacion</h2>
                     <p>Somos TECNO O.D.A un aplicativo que se caracteriza por mejorar la facilidad a la hora de generar solicitudes de equipos tecnologicos necesarios.</p>
                 </div>
                 <div class="slider-item">
-                    <!--<img src="imagenes/LOGO.jpg" alt="Imagen 2">-->
+                    <img src="../Images/logo.png" alt="Imagen 2">
                     <h2>Descripcion de productos</h2>
                     <p> Ayudamos a la eficacia tanto del proveedor como del usuario, siendo nosotros intermediarios para su soliciitud y brindar la mejor experiencia posible.</p>
                 </div>
-            </div>
-            
-        </section>
-        <section class="formulario-login" id="formulario-login" style="display: none;">
-            <h2>Iniciar Sesión</h2>
-            <form>
-                <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" name="usuario"><br><br>
-                <label for="correo">Correo:</label>
-                <input type="email" id="correo" name="correo"><br><br>
-                <label for="clave">Clave:</label>
-                <input type="password" id="clave" name="clave"><br><br>
-                <input type="submit" value="Iniciar Sesión">
-            </form>
-        </section>
+        
     </main>
     <script>
         let sliderIndex = 0;
