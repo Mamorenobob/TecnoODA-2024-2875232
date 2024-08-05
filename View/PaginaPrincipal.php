@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleD.css">
-    <link rel="icon" href="images/iconoPagina.ico">
+    <link rel="icon" href="imagenes/logo.png">
     <link rel="stylesheet" href="Scrips.js">
     <title>Tecno ODA</title>
 </head>
 <body>
     <header id="arriba" class="parallax">
         <div id="header-img">
-            <img src="foto_1.jpg">
+            <img src="imagenes/logo.png">
         </div>
             <div class="exp-text">
             <div>
@@ -29,7 +29,6 @@
         <ul>
             <li><a href="#menu">&#9776;</a></li>
             <li><a href="#">x</a></li>
-            <li><a href="#informacion">Acerca de nosotros</a></li>
             <li><a href="#productos">Productos</a></li>
         </ul>
     </nav>
@@ -44,19 +43,18 @@
 
 
     <aside id="educacion">
-        <h4>Productos</h4>
         <br>
         <hr>
         <ul>
             <li>
                 <article>
                     <div class="edu-img">
-                        <img src="sena logo.png">
+                        <img src="imagenes/Producto1.jpeg">
                     </div>
                     <div class="edu-text">
-                        <p class="periodo">1</p>
-                        <p class="titulo">2</p>
-                        <p class="descripcion">3</p>
+                        <p class="periodo">Tipo de producto</p>
+                        <p class="titulo">Producto</p>
+                        <p class="descripcion">descripcion</p>
                     </div>
                 </article>
             </li>  
@@ -67,15 +65,15 @@
             <li>
                 <article>
                     <div class="edu-img">
-                        <img src="ESCUDO.GA.jpg">
+                        <img src="imagenes/producto2.jpeg">
                     </div>
                     <div class="edu-text">
-                        <p class="periodo">1</p>
-                        <p class="titulo">2</p>
-                        <p class="descripcion">3</p>
+                        <p class="periodo">Tipo de producto</p>
+                        <p class="titulo">Producto</p>
+                        <p class="descripcion">descripcion</p>
                     </div>
                 </article>
-            </li>
+            </li>  
 
 
 
@@ -83,16 +81,15 @@
             <li>
                 <article>
                     <div class="edu-img">
-                        <img src="ESCUDO.GA.jpg">
+                        <img src="imagenes/producto3.jpeg">
                     </div>
                     <div class="edu-text">
-                        <p class="periodo">1</p>
-                        <p class="titulo">2</p>
-                        <p class="descripcion">3<br>
-                       </p>
+                        <p class="periodo">Tipo de producto</p>
+                        <p class="titulo">Producto</p>
+                        <p class="descripcion">descripcion</p>
                     </div>
                 </article>
-            </li>
+            </li>  
 
 
 
@@ -100,16 +97,15 @@
             <li>
                 <article>
                     <div class="edu-img">
-                        <img src="ESCUDO.GA.jpg">
+                        <img src="imagenes/producto4.jpeg">
                     </div>
                     <div class="edu-text">
-                        <p class="periodo">1</p>
-                        <p class="titulo">2</p>
-                        <p class="descripcion">3<br>
-                            </p>
+                        <p class="periodo">Tipo de producto</p>
+                        <p class="titulo">Producto</p>
+                        <p class="descripcion">descripcion</p>
                     </div>
                 </article>
-            </li>
+            </li>  
 
 
 
@@ -117,16 +113,15 @@
             <li>
                 <article>
                     <div class="edu-img">
-                        <img src="ESCUDO.GA.jpg">
+                        <img src="imagenes/producto5.jpeg">
                     </div>
                     <div class="edu-text">
-                        <p class="periodo">1</p>
-                        <p class="titulo">2</p>
-                        <p class="descripcion">3<br>
-                          </p>                      
+                        <p class="periodo">Tipo de producto</p>
+                        <p class="titulo">Producto</p>
+                        <p class="descripcion">descripcion</p>
                     </div>
-                </article>              
-            </li>
+                </article>
+            </li>  
         </ul>
     </aside>
     
@@ -141,20 +136,3 @@
             </li>                                  
         </ul>
     </div>
-    <footer>
-        <div id="informacion">
-                <h4>Información</h4>
-                <br>
-                <hr>
-                <br>
-                <ul>
-                    <li> Celular: 1234567890</li>
-                    <li><a href="tecnooda@gmail.com" style="color: #0800ff;">tecnooda@gmail.com</a></li>
-                    <li>Desarroladores: Mauro Moreno, Santiago Otalora, Anderson Mora, Diego Moreno, Cristian Pamplona</li>
-                </ul>
-            <p>Tecno ODA. ®<br><a href="#arriba">Volver arriba</a></p>
-                   </div>
-    </footer>
-   
-</body>
-</html>
