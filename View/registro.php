@@ -27,5 +27,21 @@ $pw = $_POST["pw"];
     
     // Ejecutar la consulta
     $stmt->execute();
+
+    if($stmt){
+        echo "
+            <script>
+                alert('Usuario ingresado exitosamente');
+                window.location = '../View/LoginRegister.php';
+            </script>
+            ";
+    }else{
+        echo "
+        <script>
+            alert('Algunos datos ya se encuentran ingresados en el aplicativo');
+                window.location = '../View/LoginRegister.php';
+        </script>
+        ";
+    }
 ?>
 

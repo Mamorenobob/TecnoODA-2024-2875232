@@ -37,7 +37,11 @@
             header("Location: bienvenido.php");
             exit();
         } else {
-            echo 'Usuario o contraseña incorrectos';
+            echo "<script>
+                    alert('Usuario o contraseña incorrectos');
+                    window.location = '../View/LoginRegister.php';
+                </script>
+            ";
         }
     }
 ?>
