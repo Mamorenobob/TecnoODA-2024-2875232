@@ -1,18 +1,31 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['Usuario'])){
+        echo'
+            <script>
+                alert("Por favor debes inicar sesion");
+                window.location = "LoginRegister.php";
+            </script>
+        ';
+        session_destroy();
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleD.css">
+    <link rel="stylesheet" href="../Model/Css/styleD.css">
     <link rel="icon" href="imagenes/logo.png">
-    <link rel="stylesheet" href="Scrips.js">
     <title>Tecno ODA</title>
 </head>
 <body>
     <header id="arriba" class="parallax">
         <div id="header-img">
-            <img src="imagenes/logo.png">
+            <img src="../Images/logo.png">
         </div>
             <div class="exp-text">
             <div>
@@ -30,6 +43,7 @@
             <li><a href="#menu">&#9776;</a></li>
             <li><a href="#">x</a></li>
             <li><a href="#productos">Productos</a></li>
+            <li><a href="../View/cerrar_sesion.php"><button>Cerrar Sesion</button></a></li>
         </ul>
     </nav>
 

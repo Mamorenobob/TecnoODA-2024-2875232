@@ -13,7 +13,7 @@
 
     // Verificar si el usuario ya está autenticado
     if (isset($_SESSION['Usuario'])) {
-        header("location:bienvenido.php");
+        header("location:PaginaPrincipal.php");
         exit(); // Asegúrate de que el script no continúe ejecutándose después del redireccionamiento
     }
 
@@ -34,7 +34,7 @@
         // Verificar si se encontró un resultado
         if ($stmt->rowCount() > 0) {
             $_SESSION['Usuario'] = $usuario;
-            header("Location: bienvenido.php");
+            header("Location: PaginaPrincipal.php");
             exit();
         } else {
             echo "<script>
