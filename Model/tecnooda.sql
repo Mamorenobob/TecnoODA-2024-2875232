@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-08-2024 a las 21:19:48
+-- Tiempo de generación: 05-08-2024 a las 21:28:31
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -38,7 +38,8 @@ CREATE TABLE `cargo` (
 
 INSERT INTO `cargo` (`ID`, `cargo`) VALUES
 (1, 'Distribuidor'),
-(2, 'Gestor');
+(2, 'Gestor'),
+(8, 'Proveedor');
 
 -- --------------------------------------------------------
 
@@ -109,15 +110,21 @@ CREATE TABLE `registro` (
   `Correo` varchar(30) DEFAULT NULL,
   `Telefono` varchar(15) DEFAULT NULL,
   `Contrasenia` varchar(20) DEFAULT NULL,
-  `Direccion` varchar(30) DEFAULT NULL
+  `Direccion` varchar(30) DEFAULT NULL,
+  `token_password` varchar(30) DEFAULT NULL,
+  `token_request` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `registro`
 --
 
-INSERT INTO `registro` (`ID`, `Cargo`, `Usuario`, `P_Nombre`, `P_Apellido`, `Tipo_Doc`, `Num_Doc`, `Correo`, `Telefono`, `Contrasenia`, `Direccion`) VALUES
-(2, 1, 'a', 'a', 'a', 7, '1', '1', '1', '1', NULL);
+INSERT INTO `registro` (`ID`, `Cargo`, `Usuario`, `P_Nombre`, `P_Apellido`, `Tipo_Doc`, `Num_Doc`, `Correo`, `Telefono`, `Contrasenia`, `Direccion`, `token_password`, `token_request`) VALUES
+(2, 1, 'a', 'a', 'a', 7, '1', '1', '1', '1', NULL, NULL, NULL),
+(3, 1, 'Ale', 'Mauro', 'Moreno', 7, NULL, 'gokussjxddd1@gmail.com', '3213639957', '123', NULL, 'd039285e628ebe88b0ecfc03ddb335', NULL),
+(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 1, 's', 's', 's', 7, NULL, 'a@gmail.com', '321', '12', NULL, NULL, NULL),
+(6, 1, 's', 's', 's', 7, NULL, 'a@gmail.com', '321', '12', NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -163,7 +170,7 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de la tabla `cargo`
 --
 ALTER TABLE `cargo`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -181,7 +188,7 @@ ALTER TABLE `documento`
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
