@@ -4,7 +4,7 @@
         height: 100px;
         margin: 0;
         backdrop-filter: blur(10px);
-        background-color: rgba(175, 122, 197, 0.5);
+        background-color: rgba(333, 333, 333, 0.5);
         
     }
     img{
