@@ -10,7 +10,7 @@
     }
     
     if(isset($_SESSION['Usuario'])){
-        header("location:bienvenido.php");
+        header("location:PaginaPrincipal.php");
     }
     $queryCargo = "SELECT ID, cargo FROM cargo";
     $stmtCargo = $conexion->prepare($queryCargo);
