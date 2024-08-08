@@ -7,7 +7,9 @@
     <link rel="Stylesheet" href="xampp/htdocs/trabajosphp/fondo.css">
     
     <title>Document</title>
-    
+    <div id="header-img">
+        <img src="../Images/14.gif" alt="" style="float: right;">
+        </div>
 
 <!--<?php 
    // session_start();
