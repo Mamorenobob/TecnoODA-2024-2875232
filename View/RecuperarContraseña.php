@@ -13,53 +13,10 @@ if ($conexion === null) {
 }
 
 if (isset($_SESSION['Usuario'])) {
-    header("location:bienvenido.php");
+    header("location:PaginaPrincipal.php");
 }
 
-$mensaje = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Correo'])) {
-    $correo = $_POST['Correo'];
 
-    // Validar el formato del correo electrónico
-    if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
-        $mensaje = 'El formato del correo electrónico es inválido.';
-    } else {
-        // Preparar la consulta para buscar el correo electrónico
-        $sql = "SELECT * FROM registro WHERE Correo = :email";
-        $stmt = $conexion->prepare($sql);
-        $stmt->bindParam(':email', $correo);
-        $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
-            // Generar un token para la recuperación de contraseña
-            $token = bin2hex(random_bytes(50));
-
-            // Guardar el token en la base de datos asociado con el usuario
-            $sql = "UPDATE registro SET token_password = :token WHERE Correo = :email";
-            $stmt = $conexion->prepare($sql);
-            $stmt->bindParam(':token', $token);
-            $stmt->bindParam(':email', $correo);
-            $stmt->execute();
-
-            // Enviar el correo electrónico
-            $to = $correo;
-            $subject = 'Recuperación de Contraseña';
-            $message = "Haga clic en el siguiente enlace para recuperar su contraseña: \n";
-            $message .= "http://tu-dominio.com/recuperar_contraseña.php?token=$token";
-            $headers = 'From: no-reply@tu-dominio.com' . "\r\n" .
-                       'Reply-To: no-reply@tu-dominio.com' . "\r\n" .
-                       'X-Mailer: PHP/' . phpversion();
-
-            if (mail($to, $subject, $message, $headers)) {
-                $mensaje = 'Se ha enviado un enlace de recuperación de contraseña a su correo electrónico.';
-            } else {
-                $mensaje = 'No se pudo enviar el correo electrónico. Por favor, intente de nuevo más tarde.';
-            }
-        } else {
-            $mensaje = 'No existe un correo en la base de datos.';
-        }
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -67,38 +24,140 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Correo'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Contraseña</title>
-    <!-- Incluye tus archivos CSS aquí -->
+    <link rel="stylesheet" href="../Model/Css/Style.css">
+    <style>
+        .contenedor_todo{
+            background-color: white;
+            width: 380px;
+            height: 450px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 10px;
+        }
+        .contenedor_todo form input{
+            width: 80%;
+            margin-top: 20px;
+            padding: 10px;
+            border: none;
+            top: 45%;
+            background: #f2f2f2;
+            font-size: 16px;
+            outline: none;
+
+        }   
+        .contenedor_todo form button{
+        padding: 10px 40px;
+        margin-top: 40px;
+        border: none;
+        font-size: 14px;
+        background: #46A2FD;
+        color: white;
+        cursor: pointer;
+        outline: none;
+    }
+        .contenedor_todo form h1{
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #46A2FD;
+    }
+
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="panel-title">Recuperar Password</div>
-                </div>
-                <div style="padding-top:30px" class="panel-body">
-                    <?php if ($mensaje): ?>
-                        <div class="alert <?php echo strpos($mensaje, 'error') !== false ? 'alert-danger' : 'alert-success'; ?> col-sm-12">
-                            <?php echo $mensaje; ?>
-                        </div>
-                    <?php endif; ?>
-                    <form id="loginform" class="form-horizontal" role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" autocomplete="off">
-                        <div style="margin-bottom: 25px" class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="email" type="email" class="form-control" name="Correo" placeholder="Correo electrónico" required>
-                        </div>
-                        <div style="margin-top:10px" class="form-group">
-                            <div class="col-sm-12 controls">
-                                <button id="btn-login" type="submit" class="btn btn-success">Enviar</button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12 control"></div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <center>
+    <div class="contenedor_todo">
+        <form action="#" method="POST">
+            <h1>
+                Recuperar Contraseña
+            </h1>
+            <input type="email" name="Verificacion" id="" placeholder="Correo Electronico">
+            <br>
+            <input type="password" name="pw" id="" placeholder="Nueva Contraseña">
+            <br>
+            <button>Aceptar</button>
+        </form>
     </div>
+    </center>
+
+
+
 </body>
+<footer>
+<?php
+    require '../View/Footer.php';
+?>
+</footer>
 </html>
+<?php
+// Conexión a la base de datos (asegúrate de definir la variable $conexion)
+
+// Verificar si el formulario ha sido enviado
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Obtener el correo y la nueva contraseña del formulario
+    $verificarCorreo = $_POST['Verificacion'];
+    $nuevaPassword = $_POST['pw'];
+
+    // Preparar la consulta para verificar si el correo existe
+    $queryEmail = 'SELECT Correo FROM registro WHERE Correo = :correo';
+    $stmtQuery = $conexion->prepare($queryEmail);
+    $stmtQuery->bindParam(':correo', $verificarCorreo, PDO::PARAM_STR);
+    $stmtQuery->execute();
+    $resultadoEmail = $stmtQuery->fetch(PDO::FETCH_ASSOC);
+
+    // Verificar si el correo existe en la base de datos
+    if ($resultadoEmail) {
+        // Preparar la consulta para actualizar el token_password y token_request
+        $updateToken = 'UPDATE registro SET token_password = :token_password, token_request = 1 WHERE Correo = :correo';
+        $stmtUpdate = $conexion->prepare($updateToken);
+        $stmtUpdate->bindParam(':token_password', $nuevaPassword, PDO::PARAM_STR);
+        $stmtUpdate->bindParam(':correo', $verificarCorreo, PDO::PARAM_STR);
+        $stmtUpdate->execute();
+        echo "<script>
+                alert('Correo enviado con éxito');
+              </script>";
+
+    } else {
+        echo "<script>
+                alert('Correo no válido');
+              </script>";
+    }
+}
+?>
+   <!--           // Definir la consulta para obtener el token_request
+              $token_request = 'SELECT token_request FROM registro WHERE Correo = :correo';
+              $stmtRequest = $conexion->prepare($token_request);
+              $stmtRequest->bindParam(':correo', $verificarCorreo, PDO::PARAM_STR);
+              
+              // Ejecutar la consulta
+              $stmtRequest->execute();
+              
+              // Obtener el resultado
+              $resultado = $stmtRequest->fetchColumn(); // Esto obtiene el valor de la primera columna del primer registro
+
+              if ($resultado == 1) {
+                try {
+                    // Actualizar los campos en la base de datos
+                    $ChangePw = 'UPDATE registro 
+                                 SET Contrasenia = (SELECT token_password FROM registro WHERE Correo = :correo), 
+                                     token_password = NULL, 
+                                     token_request = 0 
+                                 WHERE Correo = :correo';
+                                 
+                    $stmtChange = $conexion->prepare($ChangePw);
+                    
+                    // Enlazar el parámetro del correo
+                    $stmtChange->bindParam(':correo', $verificarCorreo, PDO::PARAM_STR);
+                    
+                    // Ejecutar la consulta
+                    $stmtChange->execute();
+                    
+                    echo "<script>
+                           alert('Contraseña cambiada exitosamente');
+                       </script>";
+                } catch (PDOException $e) {
+                    echo "<script>
+                           alert('Error: " . $e->getMessage() . "');
+                          </script>";
+                }
+            }

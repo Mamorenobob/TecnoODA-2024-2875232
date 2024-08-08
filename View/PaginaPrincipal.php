@@ -26,14 +26,22 @@
     <header id="arriba" class="parallax">
         <div id="header-img">
             <img src="../Images/logo.png">
+            </style>
+    
         </div>
             <div class="exp-text">
             <div>
                 <h1>Tecno ODA</h1>
                 <h3>2024</h3>
             </div>
-        </div>  
+        
+        </div >  
+        <div id="header-img">
+        <img src="../Images/13.gif" alt="" style="float: right;">
+        </div>
+       
     </header>
+    
 
 
 
@@ -150,3 +158,5 @@
             </li>                                  
         </ul>
     </div>
+
+
