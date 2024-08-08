@@ -150,3 +150,38 @@
             </li>                                  
         </ul>
     </div>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen Flotante Centrada</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; 
+        }
+
+        .floating-image {
+            width: 300px; 
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            border-radius: 10px; 
+        }
+
+        .floating-image:hover {
+            transform: translateY(-10px); 
+            box-shadow: 0 25px 35px rgba(0, 0, 0, 0.3); 
+        }
+    </style>
+</head>
+<body>
+    <img src="../Images/12.gif" alt="">
+</body>
+</html>
