@@ -116,7 +116,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "<script>
                 alert('Correo enviado con éxito');
               </script>";
-              // Definir la consulta para obtener el token_request
+
+    } else {
+        echo "<script>
+                alert('Correo no válido');
+              </script>";
+    }
+}
+?>
+   <!--           // Definir la consulta para obtener el token_request
               $token_request = 'SELECT token_request FROM registro WHERE Correo = :correo';
               $stmtRequest = $conexion->prepare($token_request);
               $stmtRequest->bindParam(':correo', $verificarCorreo, PDO::PARAM_STR);
@@ -128,23 +136,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
               $resultado = $stmtRequest->fetchColumn(); // Esto obtiene el valor de la primera columna del primer registro
 
               if ($resultado == 1) {
-                $ChangePw = 'UPDATE registro SET Contrasenia = :token_password, token_request = 0 Where Correo = :correo';
-                $stmtChange = $conexion->prepare($ChangePw);
-                $stmtChange->bindParam(':Contrasenia', $nuevaPassword, PDO::PARAM_STR);
-                $stmtChange->bindParam(':correo', $verificarCorreo, PDO::PARAM_STR);
-                $stmtChange->execute();
-                echo "<script>
-                   alert('Contraseña cambiada exitosamente');
-               </script>";
-              }else{
-                echo "<script>
-                   alert('Error');
-                  </script>";
-              }
-    } else {
-        echo "<script>
-                alert('Correo no válido');
-              </script>";
-    }
-}
-?>
+                try {
+                    // Actualizar los campos en la base de datos
+                    $ChangePw = 'UPDATE registro 
+                                 SET Contrasenia = (SELECT token_password FROM registro WHERE Correo = :correo), 
+                                     token_password = NULL, 
+                                     token_request = 0 
+                                 WHERE Correo = :correo';
+                                 
+                    $stmtChange = $conexion->prepare($ChangePw);
+                    
+                    // Enlazar el parámetro del correo
+                    $stmtChange->bindParam(':correo', $verificarCorreo, PDO::PARAM_STR);
+                    
+                    // Ejecutar la consulta
+                    $stmtChange->execute();
+                    
+                    echo "<script>
+                           alert('Contraseña cambiada exitosamente');
+                       </script>";
+                } catch (PDOException $e) {
+                    echo "<script>
+                           alert('Error: " . $e->getMessage() . "');
+                          </script>";
+                }
+            }
