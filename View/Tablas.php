@@ -4,15 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="Stylesheet" href="xampp/htdocs/trabajosphp/fondo.css">
+    
     <title>Document</title>
+    
 
-    <?php 
-    session_start();
+<!--<?php 
+   // session_start();
 
-    include '../Controller/conexion.php';
+    //include '../Controller/conexion.php';
+    ?>-->
+    <?php
+
+    include '../Controller/conexionPDO.php';
+    $queryCargo = "SELECT ID, cargo FROM cargo";
+    $resultCargo = mysqli_query($conexion, $queryCargo);
+    $queryCargo2 = "SELECT ID, cargo FROM cargo";
+    $resultCargo2 = mysqli_query($conexion, $queryCargo2);
+    
+    $queryDoc = "SELECT ID, documento FROM documento";
+    $resultDoc = mysqli_query($conexion, $queryDoc);
     ?>
     <style>
         body {
+           
             background-color: #f0f0f0; /* Color gris claro para el fondo de toda la página */
             background: linear-gradient(to bottom, #33afff, #7BB4E3);
             background-size: cover;
@@ -21,14 +36,15 @@
             background-attachment: fixed;
         }
         #formContainer {
-            width: 800px;
+            width: 600px;
             background-color: #f1f1f1;
-            border: 1px solid #ccc;
+            border: 3px solid #000000;
             padding: 20px;
             transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
             opacity: 0;
             visibility: hidden;
             text-align: center;
+            border-radius: 10px;
             
         }
         #formContainer.open {
@@ -39,15 +55,14 @@
         button {
             margin-bottom: 10px;
             padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
+            background: linear-gradient(to bottom, #f0f0f0, #ccc);
+            color: black;
+            border-radius: 20px;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #000000;
         }
 
         .form-control {
@@ -55,14 +70,13 @@
             width: 100%;
             margin-bottom: 10px;
             padding: 8px;
-            border: 1px solid #ccc;
+            border: 4px solid #000000;
             border-radius: 4px;
         }
 
         .w-25 {
             width: 25%;
         }
-        
         /* Estilos para ocultar los controles en los inputs de tipo number */
         input[type="number"]::-webkit-inner-spin-button,
         input[type="number"]::-webkit-outer-spin-button {
@@ -73,9 +87,16 @@
         input[type="number"] {
             -moz-appearance: textfield; /* Firefox */
         }
+        h1 {
+            font-family:'Times New Roman', Times, serif;
+
+            color: rgb(0, 0, 0); /* Cambia esto al color que prefieras */
+        }
     </style>
+    
 </head>
 <body>
+</div>
     <button id="toggleButton">Mostrar Formulario</button>
     <center>
     <div id="formContainer">
@@ -101,9 +122,8 @@
         </center>
     </div>
     </center>
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+         document.addEventListener('DOMContentLoaded', () => {
             const toggleButton = document.getElementById('toggleButton');
             const formContainer = document.getElementById('formContainer');
             const closeButton = document.getElementById('closeButton');
@@ -124,38 +144,8 @@
             });
         });
     </script>
+ <
+</div>
 </body>
 </html>
 <?php
-/*if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $accion = $_POST['accion'];
-    switch ($accion) {
-        case 'agregar producto':
-            $nombre = $_POST['nombre'] ?? '';
-            $cantidad = $_POST['cantidad'] ?? '';
-            $proveedor = $_POST['proveedor'] ?? '';
-            $valor = $_POST['valor'] ?? '';
-            $ubicacion = $_POST['ubicacion'] ?? '';
-            $fecha = $_POST['fecha'] ?? '';
-            $marca = $_POST['marca'] ?? '';
-            $codigo = $_POST['codigo'] ?? '';
-            $codigo_de_barras = $_POST['codigo_de_barras'] ?? '';
-            $descripcion = $_POST['descripcion'] ?? '';
-            $categoria = $_POST['categoria'] ?? '';
-
-            $insertardatos = "INSERT INTO productos (nombre, cantidad, proveedor, valor, ubicacion, fecha, marca, codigo, codigo_de_barras, descripcion, categoria) 
-                              VALUES ('$nombre', '$cantidad', '$proveedor', '$valor', '$ubicacion', '$fecha', '$marca', '$codigo', '$codigo_de_barras', '$descripcion', '$categoria')";
-
-            // Aquí deberías ejecutar la consulta usando `mysqli_query($enlace, $insertardatos);` y manejar posibles errores.
-            break;
-        case 'eliminar':
-            // Lógica para eliminar
-            break;
-        case 'editar':
-            // Lógica para editar
-            break;
-        case 'agregar':
-            break;
-    }
-}*/
-?>
