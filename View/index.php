@@ -9,14 +9,13 @@
 <body>
     <header>
         <nav>
-            <!--<a href="../View/index.php" class="boton-al-login"> Ir al Login</a>-->
-            <!--<a href="/View/index.php"><button>Registrate aqui :3</button></a>-->
             <a href="../View/LoginRegister.php" target="_blank">
-                <button style="background-color: #337ab7; color: #fff; padding: 10px 20px; border: none; border-radius: 5px;">Registrate aqui :3</button>
+                <button style="background-color: #337ab7; color: #fff; padding: 20px 30px; border: none; border-radius: 80px;">Registrate aqui</button>
               </a>
         </nav>
     </header>
     <main>
+    
         <section class="descripcion">
             <div class="slider-container">
                 <div class="slider-item">

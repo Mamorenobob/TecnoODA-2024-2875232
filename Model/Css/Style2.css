@@ -2,17 +2,31 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('../../Images/LOGO.jpg'); /* Reemplaza con la URL de tu imagen de fondo */
+    background-image: url('../../Images/fondo-login.jpg'); /* Reemplaza con la URL de tu imagen de fondo */
     background-size: cover;
     background-position: center;
     overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
 }
 
+
 header {
-    background-color: #333; /* Negro para el header */
-    color: white;
-    padding: 20px;
-    text-align: center;
+    width: 100%;
+    height: 100px;
+    margin: 0;
+    backdrop-filter: blur(10px);
+    background-color: rgba(333, 333, 333, 0.5);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  header button {
+    margin-right: 20px;
+  }
+img{
+    width: 80px;
+    margin: 10px;
+    border-radius: 50px;
 }
 
 header nav ul {
@@ -165,16 +179,13 @@ header nav a:hover {
 .slide-2 {
     background-image: url('../../Images/LOGO.jpg'); /* Reemplaza con la URL de la imagen de la diapositiva 2 */
 }
-.boton-al-login{
-    background-color: #337ab7;
-    border: none;
-    color: #ddd;
-    padding: 15px 32px;
-    text-decoration: none;
-    font-size: 20px;
-    border-radius: 12px;
-    font-family: Arial, sans-serif;
-    position: fixed;
-    top: 10px;
-    right: 9%;
-}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .boton-derecha {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
