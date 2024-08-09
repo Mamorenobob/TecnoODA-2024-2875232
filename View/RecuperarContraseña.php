@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\SMTP;
 require '../View/PHPMailer-master/src/Exception.php';
 require '../View/PHPMailer-master/src/PHPMailer.php';
 require '../View/PHPMailer-master/src/SMTP.php';
-require_once('../Controller/conexion.php');
+
 $db = new Database();
 $conexion = $db->conectar();
 
@@ -23,7 +23,6 @@ if (isset($_SESSION['Usuario'])) {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $verificarCorreo = $_POST['Verificacion'];
-    $nuevaPassword = $_POST['pw'];
 
     try {
         // Verificar si el correo existe
@@ -34,14 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $resultadoEmail = $stmtQuery->fetch(PDO::FETCH_ASSOC);
 
         if ($resultadoEmail) {
-            // Actualizar el token_password y token_request
-            $updateToken = 'UPDATE registro SET token_password = :token_password, token_request = 1 WHERE Correo = :correo';
+            // Enviar el correo con el enlace de recuperación
+            $updateToken = 'UPDATE registro SET token_request = 1 WHERE Correo = :correo';
             $stmtUpdate = $conexion->prepare($updateToken);
-            $stmtUpdate->bindParam(':token_password', $nuevaPassword, PDO::PARAM_STR);
             $stmtUpdate->bindParam(':correo', $verificarCorreo, PDO::PARAM_STR);
             $stmtUpdate->execute();
 
-            // Enviar el correo con el enlace de recuperación
             $token_query = 'SELECT id FROM registro WHERE Correo = :correo';
             $stmtTokenQuery = $conexion->prepare($token_query);
             $stmtTokenQuery->bindParam(':correo', $verificarCorreo, PDO::PARAM_STR);
@@ -53,19 +50,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 try {
                     // Configuración del servidor SMTP
                     $mail->isSMTP();
-                    $mail->Host       = 'smtp-mail.outlook.com'; // El servidor SMTP
-                    $mail->SMTPAuth   = true;                     // Habilitar la autenticación SMTP
-                    $mail->Username   = 'TecnoODA@outlook.com';  // Tu dirección de correo electrónico
-                    $mail->Password   = 'Dmc1231069*';            // Tu contraseña de correo electrónico
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Habilitar el cifrado TLS
-                    $mail->Port       = 587;                      // Puerto TCP para TLS
+                    $mail->Host       = 'smtp-mail.outlook.com'; 
+                    $mail->SMTPAuth   = true;
+                    $mail->Username   = 'TecnoODA@outlook.com'; 
+                    $mail->Password   = 'holakase123*';
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+                    $mail->Port       = 587;
+                    $mail->CharSet = 'utf8'; 
                 
                     // Destinatario y contenido del correo
                     $mail->setFrom('TecnoODA@outlook.com', 'TecnoODA');
                     $mail->addAddress($verificarCorreo);
                     $mail->isHTML(true);
                     $mail->Subject = 'Recuperación de contraseña';
-                    $mail->Body    = 'Hola, este es un correo generado para solicitar tu recuperación de contraseña, por favor, visita la página de <a href="http://localhost/TecnoODA/View/LoginRegister.php?id=' . $userId . '">Recuperación de contraseña</a>';
+                    $mail->Body    = 'Hola, este es un correo generado para solicitar tu recuperación de contraseña, por favor, visita la página de <a href="http://localhost/TecnoODA/View/CambioDeContraseña.php?id=' . $userId . '">Recuperación de contraseña</a>';
                 
                     // Enviar el correo
                     $mail->send();
@@ -74,19 +72,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     echo "<script>alert('Error al enviar el correo: " . $mail->ErrorInfo . "');</script>";
                 }
             } else {
-                echo "<script>
-                       alert('Error al recuperar el ID de usuario');
-                   </script>";
+                echo "<script>alert('Error al recuperar el ID de usuario');</script>";
             }
         } else {
-            echo "<script>
-                   alert('Correo no válido');
-               </script>";
+            echo "<script>alert('Correo no válido');</script>";
         }
     } catch (PDOException $e) {
-        echo "<script>
-               alert('Error en la base de datos: " . $e->getMessage() . "');
-           </script>";
+        echo "<script>alert('Error en la base de datos: " . $e->getMessage() . "');</script>";
     }
 }
 ?>
@@ -139,11 +131,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="contenedor_todo">
         <form action="#" method="POST">
             <h1>Recuperar Contraseña</h1>
-            <input type="email" name="Verificacion" placeholder="Correo Electrónico">
+            <input type="email" name="Verificacion" placeholder="Correo Electrónico" required>
             <br>
-            <input type="password" name="pw" placeholder="Nueva Contraseña">
-            <br>
-            <button>Aceptar</button>
+            <button type="submit">Aceptar</button>
         </form>
     </div>
     </center>
@@ -154,48 +144,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 </footer>
 </html>
-<?php
-$db = new Database();
-$conexion = $db->conectar();
-
-if ($conexion === null) {
-    die("Error de la conexión a la base de datos");
-}
-
-if (isset($_GET['id'])) {
-    $userId = $_GET['id'];
-
-    try {
-        // Preparar la consulta para obtener el correo y token_password
-        $query = 'SELECT Correo, token_password FROM registro WHERE id = :id';
-        $stmt = $conexion->prepare($query);
-        $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
-        $stmt->execute();
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($user) {
-            // Actualizar Contrasenia y poner token_password a NULL
-            $updateQuery = 'UPDATE registro SET Contrasenia = token_password, token_password = NULL, token_request = 0 WHERE id = :id';
-            $stmtUpdate = $conexion->prepare($updateQuery);
-            $stmtUpdate->bindParam(':id', $userId, PDO::PARAM_INT);
-            $stmtUpdate->execute();
-
-            echo "<script>
-                   alert('Contraseña cambiada exitosamente');
-                   window.location.href = '../View/LoginRegister.php';
-               </script>";
-        } else {
-            echo "<script>
-                   alert('ID de usuario no válido');
-                   window.location.href = '../View/LoginRegister.php';
-               </script>";
-        }
-    } catch (PDOException $e) {
-        echo "<script>
-               alert('Error en la base de datos: " . $e->getMessage() . "');
-           </script>";
-    }
-} else {
-
-}
-?>
