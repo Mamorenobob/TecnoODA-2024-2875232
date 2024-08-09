@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="../Model/Css/Style2.css">
 </head>
 <body>
-    <header style="display: flex; justify-content: space-between; align-items: center;">
-    <img src="../Images/logo.png" alt="Logo">
-    <nav>
-        <a href="../View/LoginRegister.php" target="_blank">
-            <button style="background-color: #337ab7; color: #fff; padding: 20px 30px; border: none; border-radius: 80px;">Registrate aqui</button>
-        </a>
-    </nav>
-</header>
+    <header>
+        <nav>
+            <a href="../View/LoginRegister.php" target="_blank">
+                <button style="background-color: #337ab7; color: #fff; padding: 20px 30px; border: none; border-radius: 80px; cursor:pointer">Registrate aqui</button>
+              </a>
+        </nav>
+    </header>
     <main>
     
         <section class="descripcion">
