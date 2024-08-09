@@ -22,14 +22,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../View/index.php">Inicio <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Productos</a>
+                        <a class="nav-link" href="#">Productos solicitados</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
-                    </li>
+                <label class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContacto">Contactar Proveedor</a>
+                </label>
                 </ul>
             </div>
         </nav>
@@ -39,7 +39,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Contactar al proveedor</h5>
+                    <label class="nav-item">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -69,8 +69,8 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h1 class="text-center">Productos Electrónicos</h1>
+                <div class="col-md-12 text-center">
+                    <h1 style="color: #fcfcfc; font-size: 80px;"class="text-center">Productos Electrónicos</h1>
                 </div>
             </div>
             <div class="row">
@@ -82,28 +82,28 @@
                             <li data-target="#carrusel" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="../Images/1.png" class="d-block w-100">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Producto 1</h5>
-                                    <p style="color: #ffffff;">Descripción del producto 1</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../Images/1.png" alt="Producto 2" class="d-block w-100">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Producto 2</h5>
-                                    <p style="color: #ffffff;">Descripción del producto 2</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../Images/1.png" alt="Producto 3" class="d-block w-100">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Producto 3</h5>
-                                    <p style="color: #ffffff;">Descripción del producto 3</p>
-                                </div>
+                        <div class="carousel-item active">
+                            <img src="../Images/1.png" class="d-block w-100 img-fluid" style="height: 500px; width: 100%; object-fit: cover;">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Producto 1</h5>
+                                <p style="color: #ffffff;">Descripción del producto 1</p>
                             </div>
                         </div>
+                        <div class="carousel-item">
+                            <img src="../Images/3.png" alt="Producto 2" class="d-block w-100 img-fluid" style="height: 500px; width: 100%; object-fit: cover;">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Producto 2</h5>
+                                <p style="color: #ffffff;">Descripción del producto 2</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../Images/1.png" alt="Producto 3" class="d-block w-100 img-fluid" style="height: 500px; width: 100%; object-fit: cover;">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Producto 3</h5>
+                                <p style="color: #ffffff;">Descripción del producto 3</p>
+                            </div>
+                        </div>
+                    </div>
                         <a class="carousel-control-prev" href="#carrusel" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Anterior</span>
@@ -112,17 +112,3 @@
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Siguiente</span>
                         </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalContacto">Contactar al proveedor</button>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer class="bg-dark text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">

@@ -5,43 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prueba</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="diseño.css">
+    <link rel="stylesheet" href="../Model/Css/diseño.css">
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center">Nuestros Productos</h1>
+                <h1 style="color: #fcfcfc; font-size: 80px;" class="text-center">Productos Electrónicos</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagenes/LOGO.jpg" class="card-img-top" alt="Producto 1">
+                    <img src="../Images/1.png" class="card-img-top" alt="Producto 1">
                     <div class="card-body">
                         <h5 class="card-title">Producto 1</h5>
                         <p class="card-text">Descripción del producto 1.</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
+                        <a href="../View/Prueba-Proveedor1.php" class="btn btn-primary">Ver más</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagenes/1.png" class="card-img-top" alt="Producto 2">
+                    <img src="../Images/1.png" class="card-img-top" alt="Producto 2">
                     <div class="card-body">
                         <h5 class="card-title">Producto 2</h5>
                         <p class="card-text">Descripción del producto 2.</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
+                        <a href="../View/Prueba-Proveedor1.php" class="btn btn-primary">Ver más</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagenes/2.png" class="card-img-top" alt="Producto 3">
+                    <img src="../Images/1.png" class="card-img-top" alt="Producto 3">
                     <div class="card-body">
                         <h5 class="card-title">Producto 3</h5>
                         <p class="card-text">Descripción del producto 3.</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
+                        <a href="../View/Prueba-Proveedor1.php" class="btn btn-primary">Ver más</a>
                     </div>
                 </div>
             </div>
