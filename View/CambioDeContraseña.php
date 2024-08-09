@@ -112,7 +112,7 @@ if (isset($_GET['id'])) {
             </div>
             <br>
             <div class="pw1">
-                       <input type="password" name="pw" id="contrasena1" placeholder="Confirmar Contraseña" required autocomplete="off">
+                       <input type="password" name="ConfirmarPassword" id="contrasena1" placeholder="Confirmar Contraseña" required autocomplete="off">
                        <img id="imagenOjo1" src="../Images/OjoCerrado.jpeg" height="40px" width="5px" 
                         style="position: absolute; top: 29%; left:53%;transform: translateY(-50%); cursor: pointer;    background: #f2f2f2;"
                         onmousedown="mostrarContrasena1()" 
