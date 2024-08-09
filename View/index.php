@@ -33,6 +33,7 @@
     </style>
 </head>
 <body>
+<<<<<<< HEAD
 <header>
     <img src="../Images/logo.png" alt="Logo" class="logo-header">
     <nav style="display: flex; justify-content: flex-end; align-items: center;">
@@ -42,6 +43,15 @@
 </nav>
 </style>
 </header>
+=======
+    <header>
+        <nav>
+            <a href="../View/LoginRegister.php" target="_blank">
+                <button style="background-color: #337ab7; color: #fff; padding: 20px 30px; border: none; border-radius: 80px; cursor:pointer">Registrate aqui</button>
+              </a>
+        </nav>
+    </header>
+>>>>>>> 39997ed9f24b12dacb443f09dd073d61607863a5
     <main>
     
         <section class="descripcion">

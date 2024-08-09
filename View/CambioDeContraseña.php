@@ -34,6 +34,7 @@ if (isset($_GET['id'])) {
                     $stmtUpdate->bindParam(':contrasenia', $nuevaPassword, PDO::PARAM_STR);
                     $stmtUpdate->bindParam(':id', $userId, PDO::PARAM_INT);
                     $stmtUpdate->execute();
+                    $a = 'SELECT FROM registro WHERE Num_Doc = :Num_Doc';
 
                     echo "<script>
                            alert('Contraseña cambiada exitosamente');
@@ -102,9 +103,21 @@ if (isset($_GET['id'])) {
     <div class="contenedor_todo">
         <form action="CambioDeContraseña.php?id=<?php echo htmlspecialchars($userId); ?>" method="POST">
             <h1>Cambiar Contraseña</h1>
-            <input type="password" name="Password" placeholder="Nueva Contraseña" required>
+            <div class="pw">
+                       <input type="password" name="Password" id="contrasena" placeholder="Contraseña" required autocomplete="off">
+                       <img id="imagenOjo" src="../Images/OjoCerrado.jpeg" height="40px" width="3%" 
+                        style="position: absolute; top: 21%;  left:53%;transform: translateY(-50%); cursor: pointer;     background: #f2f2f2;"
+                        onmousedown="mostrarContrasena()" 
+                        onmouseup="ocultarContrasena()">
+            </div>
             <br>
-            <input type="password" name="ConfirmarPassword" placeholder="Confirmar Contraseña" required>
+            <div class="pw1">
+                       <input type="password" name="pw" id="contrasena1" placeholder="Confirmar Contraseña" required autocomplete="off">
+                       <img id="imagenOjo1" src="../Images/OjoCerrado.jpeg" height="40px" width="5px" 
+                        style="position: absolute; top: 29%; left:53%;transform: translateY(-50%); cursor: pointer;    background: #f2f2f2;"
+                        onmousedown="mostrarContrasena1()" 
+                        onmouseup="ocultarContrasena1()">
+                    </div>
             <br>
             <button type="submit">Aceptar</button>
         </form>
@@ -117,4 +130,28 @@ if (isset($_GET['id'])) {
 ?>
 </footer>
 </html>
-x
+<script>
+    let contrasenaInput = document.getElementById("contrasena");
+    let contrasenaInput1 = document.getElementById("contrasena1");
+    let imagenOjo = document.getElementById("imagenOjo");
+    let imagenOjo1 = document.getElementById("imagenOjo1");
+
+    function mostrarContrasena() {
+        contrasenaInput.type = "text";
+        imagenOjo.src = "../Images/OjoAbierto.jpeg"; // Cambia la imagen al presionar
+    }
+  
+    function ocultarContrasena() {
+        contrasenaInput.type = "password";
+        imagenOjo.src = "../Images/OjoCerrado.jpeg"; // Cambia la imagen al soltar
+}
+function mostrarContrasena1() {
+        contrasenaInput1.type = "text";
+        imagenOjo1.src = "../Images/OjoAbierto.jpeg";
+    }
+  
+    function ocultarContrasena1() {
+        contrasenaInput1.type = "password";
+        imagenOjo1.src = "../Images/OjoCerrado.jpeg";
+}
+</script>
