@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-08-2024 a las 21:28:31
+-- Tiempo de generación: 09-08-2024 a las 23:46:23
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -121,10 +121,13 @@ CREATE TABLE `registro` (
 
 INSERT INTO `registro` (`ID`, `Cargo`, `Usuario`, `P_Nombre`, `P_Apellido`, `Tipo_Doc`, `Num_Doc`, `Correo`, `Telefono`, `Contrasenia`, `Direccion`, `token_password`, `token_request`) VALUES
 (2, 1, 'a', 'a', 'a', 7, '1', '1', '1', '1', NULL, NULL, NULL),
-(3, 1, 'Ale', 'Mauro', 'Moreno', 7, NULL, 'gokussjxddd1@gmail.com', '3213639957', '123', NULL, 'd039285e628ebe88b0ecfc03ddb335', NULL),
-(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 1, 'Ale', 'Mauro', 'Moreno', 7, NULL, 'gokussjxddd1@gmail.com', '3213639957', '123', NULL, '4564987987894161', 1),
 (5, 1, 's', 's', 's', 7, NULL, 'a@gmail.com', '321', '12', NULL, NULL, NULL),
-(6, 1, 's', 's', 's', 7, NULL, 'a@gmail.com', '321', '12', NULL, NULL, NULL);
+(7, 8, 'Contacto', 'Contacto', 'Correo', 7, NULL, 'TecnoODA@outlook.com', '1', 'pato5', NULL, NULL, 0),
+(8, 2, 'Andres', 'Andres', 'Vasquez', 8, NULL, 'martinesandres526@gmail.com', '3248757667', 'andres123', NULL, NULL, 0),
+(9, 1, 'Tecno', 'a', 'a', 7, NULL, 'TecnoODA@outlook.com', '121', '123', NULL, NULL, 1),
+(10, 2, 'Demond', 'Ale', 'Mor', 7, '1456788410', 'mamoreno.bob@gmail.com', '321459782', '123456789', NULL, NULL, 0),
+(11, 8, 'ZDELMAXZ', 'Cris', 'Pam', 8, '156456165', 'camilo.milo177@gmail.com', '3215616', '123', NULL, NULL, 0);
 
 --
 -- Índices para tablas volcadas
@@ -188,7 +191,7 @@ ALTER TABLE `documento`
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
