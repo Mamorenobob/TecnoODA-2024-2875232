@@ -51,7 +51,86 @@
 }
     </style>
 </head>
+<style>
+        /* Estilo para el contenedor de la imagen */
+        #header-img {
+            margin-bottom: 20px; /* Espacio debajo de la imagen */
+            text-align: center; /* Centrar el contenido */
+        }
+
+        /* Estilo para los recuadros de texto */
+        .message-1 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 650px;   /* Mueve el div 10px hacia abajo */
+            left: 1400px;  /* Mueve el div 20px hacia la derecha */
+        }
+        .message-2 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 600px;   /* Mueve el div 10px hacia abajo */
+            left: 1400px;  /* Mueve el div 20px hacia la derecha */
+        }
+        .message-3 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 700px;   /* Mueve el div 10px hacia abajo */
+            left: 1400px;  /* Mueve el div 20px hacia la derecha */
+        }
+        .message-4 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 750px;   /* Mueve el div 10px hacia abajo */
+            left: 1400px;  /* Mueve el div 20px hacia la derecha */
+        }
+    </style>
+
 <body>
+    <!-- Recuadros de información debajo de la imagen -->
+<div class="message-1">
+    <!-- Contenido del primer cuadro -->
+    <p></p>
+</div>
+<div class="message-2">
+    <!-- Contenido del segundo cuadro -->
+    <p></p>
+</div>
+<div class="message-3">
+    <!-- Contenido del primer cuadro -->
+    <p></p>
+</div>
+<div class="message-4">
+    <!-- Contenido del segundo cuadro -->
+    <p></p>
+</div>
     <main>
 
         <div class="contenedorTodo">
