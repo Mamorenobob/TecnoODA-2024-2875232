@@ -12,3 +12,12 @@ body{
     background-position: center;
     background-attachment: fixed;
 }
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../../Images/fondo-login.jpg'); /* Reemplaza con la URL de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+}
