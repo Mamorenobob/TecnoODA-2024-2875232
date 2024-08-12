@@ -6,6 +6,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="Stylesheet" href="../Model/Css/Fondo1.css">
     <title>Document</title>
+    <div id="header-img">
+        <img src="../Images/13.gif" alt="" style="width: 200px; height:auto; float: right; ">
+    </div>
     <style>
 body{
     background-image: url(../Images/Fondo1-bell.png);
@@ -125,7 +128,84 @@ body{
         }
     </style>
 </head>
+<style>
+    
+
+        /* Estilo para los recuadros de texto */
+        .message-1 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 1050px;   /* Mueve el div 10px hacia abajo */
+            right: 800px;  /* Mueve el div 20px hacia la derecha */
+        }
+        .message-2 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 1100px;   /* Mueve el div 10px hacia abajo */
+            right: 800px;  /* Mueve el div 20px hacia la derecha */
+        }
+        .message-3 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 1150px;   /* Mueve el div 10px hacia abajo */
+            right: 800px;  /* Mueve el div 20px hacia la derecha */
+        }
+        .message-4 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 1200px;   /* Mueve el div 10px hacia abajo */
+            right: 800px;  /* Mueve el div 20px hacia la derecha */
+        }
+   
+</style>
 <body>
+
+    <!-- Recuadros de información debajo de la imagen -->
+<div class="message-1">
+    <!-- Contenido del primer cuadro -->
+    <p>              </p>
+</div>
+<div class="message-2">
+    <!-- Contenido del segundo cuadro -->
+    <p>                </p>
+</div>
+<div class="message-3">
+    <!-- Contenido del primer cuadro -->
+    <p>                   </p>
+</div>
+<div class="message-4">
+    <!-- Contenido del segundo cuadro -->
+    <p>               </p>
+</div>
+
 
     <table class="table table-bordered">
         <thead class="thead-dark">
@@ -145,7 +225,6 @@ body{
         </thead>
     </table>
     
-    <img src="../Images/images.jfif">
     <button href="../TecnoODA/View/index.php" type="button" class="btn btn-outline-light" id="backButton" onclick="window.location.href='paginaInicio.php';">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
