@@ -50,6 +50,9 @@
             -moz-appearance: textfield; /* Firefox */
 }
     </style>
+        <div id="header-img">
+        <img src="../Images/13.gif" alt="" style="width: 500px; height:auto; float: right; ">
+    </div>
 </head>
 <style>
         /* Estilo para el contenedor de la imagen */
