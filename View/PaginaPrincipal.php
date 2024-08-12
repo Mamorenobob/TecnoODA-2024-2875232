@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="PStyleD.css">
-    <link rel="stylesheet" href="styleD.css">
+    <link rel="stylesheet" href="../Model/Css/styleD.css">
+    <link rel="stylesheet" href="../Model/Css/PStyleD.css">
     <link rel="icon" href="imagenes/logo.png">
     <title>Tecno ODA</title>
     </head>
