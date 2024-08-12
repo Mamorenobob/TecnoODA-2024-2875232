@@ -114,6 +114,32 @@
             top: 750px;   /* Mueve el div 10px hacia abajo */
             left: 1400px;  /* Mueve el div 20px hacia la derecha */
         }
+        .message-5 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 800px;   /* Mueve el div 10px hacia abajo */
+            left: 1400px;  /* Mueve el div 20px hacia la derecha */
+        }
+        .message-6 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 850px;   /* Mueve el div 10px hacia abajo */
+            left: 1400px;  /* Mueve el div 20px hacia la derecha */
+        }
     </style>
 
 <body>
@@ -131,6 +157,14 @@
     <p></p>
 </div>
 <div class="message-4">
+    <!-- Contenido del segundo cuadro -->
+    <p></p>
+</div>
+<div class="message-5">
+    <!-- Contenido del segundo cuadro -->
+    <p></p>
+</div>
+<div class="message-6">
     <!-- Contenido del segundo cuadro -->
     <p></p>
 </div>
