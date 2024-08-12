@@ -42,18 +42,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Redirigir al usuario según su cargo
         switch ($cargo) {
-            case 'Gestor':
+            case 2:
                 header("Location: ../View/PaginaPrincipal.php");
                 break;
-            case 'Proveedor':
+            case 8:
                 header("Location: ../View/Prueba-Proveedor1.php");
                 break;
-            case 'Distribuidor':
+            case 1:
                 header("Location: ../View/Moderador.php");
                 break;
             default:
                 // Si el cargo no coincide con ninguno de los casos, redirigir a una página de error o predeterminada
-                header("Location: ../View/PaginaPrincipal.php");
+                header("Location: ../View/LoginRegister.php");
                 break;
         }
         exit();
