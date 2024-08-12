@@ -1,0 +1,64 @@
+* {
+    padding:0px;
+    margin:0px;
+}
+
+/* Imagen Principal*/
+#header-img{
+    width: 12%;
+    display: grid;
+    place-items: center;
+}
+header img{
+    width: 80%;
+    border: 0.5rem solid #ffffff;
+}
+
+/*barra de interaccion*/
+#header{
+margin:auto;
+width:100px;
+font-family:Roboto;
+}
+nav{
+    grid-area: nav;
+    background-color: #4c00ff;
+}
+ul, ol{
+    list-style: none;
+}
+.nav li a {
+    background-color: #4c00ff;
+    color:whitesmoke;
+    text-decoration: none;
+    padding:38px 25px;
+    display: block;
+    align-content:flex-start;
+}
+.nav li a:hover{
+    background-color: rgb(1, 32, 90);
+}
+.oculto {
+    display: none;
+  }
+  /*Botones*/
+  button {
+    padding: 38px 25px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  #botonesDesplegables {
+    margin-top: 0px;
+  }
+  #botonPrincipal {
+    grid-area:initial;
+    background-color: #4c00ff;
+    color:whitesmoke;
+    text-decoration: none;
+    padding:38px 25px;
+    display: block;
+    align-content:flex-start;
+  }
+
