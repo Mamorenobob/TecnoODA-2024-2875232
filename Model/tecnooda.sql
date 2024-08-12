@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-08-2024 a las 23:46:23
+-- Tiempo de generación: 12-08-2024 a las 22:38:36
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -39,7 +39,8 @@ CREATE TABLE `cargo` (
 INSERT INTO `cargo` (`ID`, `cargo`) VALUES
 (1, 'Distribuidor'),
 (2, 'Gestor'),
-(8, 'Proveedor');
+(8, 'Proveedor'),
+(9, 'Administrador\r\n');
 
 -- --------------------------------------------------------
 
@@ -84,13 +85,24 @@ CREATE TABLE `productos` (
   `ID` int(11) NOT NULL,
   `Nombre` varchar(25) DEFAULT NULL,
   `Cantidad` int(11) DEFAULT NULL,
-  `Proveedor` varchar(25) DEFAULT NULL,
-  `Valor` decimal(10,2) DEFAULT NULL,
-  `Ubicacion` varchar(10) DEFAULT NULL,
-  `Fecha` datetime DEFAULT NULL,
-  `Marca` varchar(20) DEFAULT NULL,
-  `Codigo_De_Barras` varchar(13) DEFAULT NULL,
-  `Descripcion` varchar(50) DEFAULT NULL
+  `Proveedor` int(11) DEFAULT NULL,
+  `Valor` int(11) DEFAULT NULL,
+  `Ubicacion` varchar(30) DEFAULT NULL,
+  `Fecha` date DEFAULT NULL,
+  `Marca` varchar(25) DEFAULT NULL,
+  `Codigo` int(11) DEFAULT NULL,
+  `Descripcion` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedor`
+--
+
+CREATE TABLE `proveedor` (
+  `ID` int(11) NOT NULL,
+  `Proveedor` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -155,6 +167,13 @@ ALTER TABLE `documento`
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `Proveedor` (`Proveedor`);
+
+--
+-- Indices de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -173,7 +192,7 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de la tabla `cargo`
 --
 ALTER TABLE `cargo`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -188,6 +207,18 @@ ALTER TABLE `documento`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
@@ -196,6 +227,12 @@ ALTER TABLE `registro`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`Proveedor`) REFERENCES `proveedor` (`ID`);
 
 --
 -- Filtros para la tabla `registro`
