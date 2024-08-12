@@ -9,15 +9,12 @@ $conexion = $db->conectar();
 // Verificar si la conexión fue exitosa
 if ($conexion === null) {
     die('Error de conexión a la base de datos');
-}
+    
+// Guardar el usuario y el cargo en la sesión
+$_SESSION['Usuario'] = $usuario;
+$_SESSION['Cargo'] = $cargo;
 
-// Verificar si el usuario ya está autenticado
-if (isset($_SESSION['Usuario'])) {
-    header("location: PaginaPrincipal.php");
-    exit(); // Asegúrate de que el script no continúe ejecutándose después del redireccionamiento
 }
-
-// Procesar el inicio de sesión
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['Usuario'];
     $contrasenia = $_POST['contrasenia'];
@@ -35,11 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->rowCount() > 0) {
         // Obtener el cargo del usuario
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        $cargo = $row['Cargo'];
-
-        // Guardar el usuario en la sesión
-        $_SESSION['Usuario'] = $usuario;
-
+        $cargo = trim($row['Cargo']); // Asegúrate de que el valor no tenga espacios extra
         // Redirigir al usuario según su cargo
         switch ($cargo) {
             case 'Gestor':
@@ -53,8 +46,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 break;
             default:
                 // Si el cargo no coincide con ninguno de los casos, redirigir a una página de error o predeterminada
-                header("Location: ../View/PaginaPrincipal.php");
+                header("Location: ../View/LoginRegister.php");
                 break;
+                    // Verificar si el usuario ya está autenticado
+            if (isset($_SESSION['Usuario'])) {
+                // Verificar el cargo en la sesión y redirigir en consecuencia
+                if (isset($_SESSION['Cargo'])) {
+                    switch ($_SESSION['Cargo']) {
+                        case 'Gestor':
+                            header("Location: ../View/PaginaPrincipal.php");
+                            exit();
+                        case 'Proveedor':
+                            header("Location: ../View/Prueba-Proveedor1.php");
+                            exit();
+                        case 'Distribuidor':
+                            header("Location: ../View/Moderador.php");
+                            exit();
+                        default:
+                            header("Location: ../View/LoginRegister.php");
+                            exit();
+                    }
+                } else {
+                    // Si el cargo no está definido, redirige a una página de error
+                    header("Location: ../View/LoginRegister.php");
+                    exit();
+    }
+}
         }
         exit();
     } else {
@@ -64,4 +81,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </script>";
     }
 }
+
 ?>
