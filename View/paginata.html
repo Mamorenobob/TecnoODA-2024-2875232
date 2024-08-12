@@ -15,7 +15,7 @@
             width: 100px; /* Ajusta el tamaño de la imagen */
         }
 
-        #formContainer, #editFormContainer {
+        #formContainer {
             position: relative;
             width: 600px;
             background-color: #f1f1f1;
@@ -27,14 +27,15 @@
             text-align: center;
             border-radius: 10px;
             z-index: 10; /* Asegura que esté sobre la tabla */
+            top: 50px;
+            left:650px;
         }
 
         #formContainer.open, #editFormContainer.open {
             opacity: 1;
             visibility: visible;
         }
-        #editFormContainer{
-            position: relative;
+        #editFormContainer{    position: relative;
             width: 600px;
             background-color: #f1f1f1;
             border: 3px solid #110e0e;
@@ -44,8 +45,13 @@
             visibility: hidden;
             text-align: center;
             border-radius: 10px;
-            z-index: 8; /* Asegura que esté sobre la tabla */
+            z-index: 10; /* Asegura que esté sobre la tabla */
+            top: -700px;
+            left:650px;
+
         }
+
+  
 
         button {
             margin-bottom: 10px;
@@ -128,6 +134,7 @@
                 <th>Código de Barras</th>
                 <th>Descripción</th>
                 <th>Editar</th>
+                <th>Borrar</th>
             </tr>
             <tr>
                 <td>Producto 1</td>
@@ -141,6 +148,48 @@
                 <td>1234567890123</td>
                 <td>Descripción del producto 1</td>
                 <td><button onclick="openEditForm()">Editar</button></td>
+                <td><button onclick="deleteRow(this)">Borrar</button></td>
+            <tr>
+                <td>Producto 1</td>
+                <td>10</td>
+                <td>Proveedor A</td>
+                <td>$100</td>
+                <td>Almacén 1</td>
+                <td>2024-08-09</td>
+                <td>Marca X</td>
+                <td>001</td>
+                <td>1234567890123</td>
+                <td>Descripción del producto 1</td>
+                <td><button onclick="openEditForm()">Editar</button></td>
+                <td><button onclick="deleteRow(this)">Borrar</button></td>
+            </tr>
+            <tr>
+                <td>Producto 2</td>
+                <td>10</td>
+                <td>Proveedor A</td>
+                <td>$100</td>
+                <td>Almacén 1</td>
+                <td>2024-08-09</td>
+                <td>Marca X</td>
+                <td>001</td>
+                <td>1234567890123</td>
+                <td>Descripción del producto 1</td>
+                <td><button onclick="openEditForm()">Editar</button></td>
+                <td><button onclick="deleteRow(this)">Borrar</button></td>
+            </tr>
+            <tr>
+                <td>Producto 3</td>
+                <td>10</td>
+                <td>Proveedor A</td>
+                <td>$100</td>
+                <td>Almacén 1</td>
+                <td>2024-08-09</td>
+                <td>Marca X</td>
+                <td>001</td>
+                <td>1234567890123</td>
+                <td>Descripción del producto 1</td>
+                <td><button onclick="openEditForm()">Editar</button></td>
+                <td><button onclick="deleteRow(this)">Borrar</button></td>
             </tr>
         </thead>
     </table>
@@ -209,6 +258,14 @@
     </center>
 
     <script>
+            function deleteRow(button) {
+                const row = button.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+                alert('Producto eliminado correctamente.');
+            }
+
+
+
         document.addEventListener('DOMContentLoaded', () => {
             const toggleButton = document.getElementById('toggleButton');
             const formContainer = document.getElementById('formContainer');
@@ -250,6 +307,7 @@
 
             document.getElementById('editFormContainer').classList.add('open');
         }
+        
     </script>
 </body>
 </html>
