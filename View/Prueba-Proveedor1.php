@@ -97,7 +97,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="../Images/1.png" alt="Producto 3" class="d-block w-100 img-fluid" style="height: 500px; width: 100%; object-fit: cover;">
+                            <img src="../Images/2.png" alt="Producto 3" class="d-block w-100 img-fluid" style="height: 500px; width: 100%; object-fit: cover;">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Producto 3</h5>
                                 <p style="color: #ffffff;">Descripción del producto 3</p>
