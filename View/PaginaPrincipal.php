@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="../Model/Css/styleD.css">
     <link rel="stylesheet" href="../Model/Css/PStyleD.css">
     <link rel="icon" href="imagenes/logo.png">
+=======
+    <link rel="stylesheet" href="../Model/Css/PStyleD.css">
+    <link rel="stylesheet" href="../Model/Css/styleD.css">
+    <link rel="icon" href="../Images/logo.png">
+>>>>>>> Stashed changes
     <title>Tecno ODA</title>
     </head>
 <body>
     <header id="arriba" class="parallax">
         <div id="header-img">
-            <img src="imagenes/logo.png">
+            <img src="../Images/logo.png">
         </div>
         <div class="exp-text">
             <div>
