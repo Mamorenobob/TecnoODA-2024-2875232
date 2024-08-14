@@ -12,17 +12,19 @@
         <img src="../Images/13.gif" alt="" style="width: 300px; float: right; ">
     </div>
     </head>
-    <style>/* 
-        
+    <style>
+        /*
         #header-img {
-            margin-bottom: 20px; 
+            margin-bottom: 20px;
             text-align: center; 
+        }
 
+    
         .message-1 {
             background-color: white; 
             border-radius: 10px;
             padding: 10px; 
-            margin: 10px auto; 
+            margin: 10px auto; /
             width: 25%; 
             text-align: center; 
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -38,7 +40,7 @@
             margin: 10px auto; 
             width: 25%; 
             text-align: center; 
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             margin-right: 600px;
             position: absolute;
             top: 600px;   
@@ -51,30 +53,30 @@
             margin: 10px auto; 
             width: 25%; 
             text-align: center; 
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
             margin-right: 600px;
             position: absolute;
             top: 700px;   
-            left: 1400px; 
+            left: 1400px;  
         }
         .message-4 {
             background-color: white;
             border-radius: 10px;
             padding: 10px; 
             margin: 10px auto; 
-            width: 25%; /* Anchura del recuadro 
-            text-align: center; 
+            width: 25%;
+            text-align: center;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
             margin-right: 600px;
             position: absolute;
             top: 750px;   
-            left: 1400px; 
+            left: 1400px;  
         }
         .message-5 {
             background-color: white; 
             border-radius: 10px;
-            padding: 10px; 
-            margin: 10px auto; 
+            padding: 10px;
+            margin: 10px auto;
             width: 25%; 
             text-align: center; 
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
@@ -84,47 +86,47 @@
             left: 1400px;  
         }
         .message-6 {
-            background-color: white; 
+            background-color: white;
             border-radius: 10px;
             padding: 10px; 
             margin: 10px auto; 
             width: 25%; 
-            text-align: center; 
+            text-align: center;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
             margin-right: 600px;
             position: absolute;
             top: 850px;   
             left: 1400px;  
-        }
+        }*/
     </style>
     
 <body>
     
-       <!-- Recuadros de información debajo de la imagen -->
+ <!--
 <div class="message-1">
-    <!-- Contenido del primer cuadro -->
+    
     <p></p>
 </div>
 <div class="message-2">
-    <!-- Contenido del segundo cuadro -->
+    
     <p></p>
 </div>
 <div class="message-3">
-    <!-- Contenido del primer cuadro -->
+    
     <p></p>
 </div>
 <div class="message-4">
-    <!-- Contenido del segundo cuadro -->
+   
     <p></p>
 </div>
 <div class="message-5">
-    <!-- Contenido del segundo cuadro -->
+   
     <p></p>
 </div>
 <div class="message-6">
-    <!-- Contenido del segundo cuadro -->
+   
     <p></p>
-</div> */
+</div> -->
     <header id="arriba" class="parallax">
         <div id="header-img">
             <img src="imagenes/logo.png">
