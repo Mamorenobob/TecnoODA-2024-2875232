@@ -1,0 +1,171 @@
+body {
+    background-color: #333; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #337ab7; /* Azul claro */
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ccc;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section {
+    background-color: #444; /* Fondo gris oscuro */
+    padding: 20px;
+    margin: 20px;
+    width: 30%;
+}
+
+h2 {
+    color: #337ab7; /* Azul claro */
+}
+
+img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #337ab7; /* Azul claro */
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+}
+footer {
+    background-color: #f0f0f0; /* Fondo gris claro */
+    padding: 20px;
+    text-align: right;
+}
+
+.cart-button {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#request-form {
+    display: none;
+}
+
+.cart-button:hover + #request-form {
+    display: block;
+}
+
+#request-form {
+    background-color: #fff; /* Fondo blanco */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#request-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#request-form input[type="text"], #request-form input[type="email"], #request-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+#request-form input[type="submit"] {
+    background-color: #337ab7; /* Azul claro */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#request-form input[type="submit"]:hover {
+    background-color: #23527c; /* Azul oscuro */
+}
+.button {
+    cursor: pointer;
+}
+
+#request-form {
+    background-color: #fff; /* Fondo blanco */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Ocultar el formulario por defecto */
+}
+
+#request-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#request-form input[type="text"], #request-form input[type="email"], #request-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+#request-form input[type="submit"] {
+    background-color: #337ab7; /* Azul claro */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#request-form input[type="submit"]:hover {
+    background-color: #23527c; /* Azul oscuro */
+}
+.button {
+    width: 30px; /* ajusta el ancho de la imagen */
+    height: 30px; /* ajusta el alto de la imagen */
+    float: right; /* posiciona la imagen a la derecha */
+  }
+  .cart-button-container {
+    float: right; /* posiciona el contenedor a la derecha */
+    margin-right: 20px; /* ajusta el margen derecho */
+    text-align: center; /* centra la imagen horizontalmente */
+  }
+  
+  .button {
+    width: 30px; /* ajusta el ancho de la imagen */
+    height: 30px; /* ajusta el alto de la imagen */
+    margin: -15px;
+    cursor: pointer;
+    
+  }
