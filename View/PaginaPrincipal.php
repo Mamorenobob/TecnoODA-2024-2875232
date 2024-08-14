@@ -4,21 +4,130 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< Updated upstream
     <link rel="stylesheet" href="../Model/Css/styleD.css">
     <link rel="stylesheet" href="../Model/Css/PStyleD.css">
     <link rel="icon" href="imagenes/logo.png">
-=======
-    <link rel="stylesheet" href="../Model/Css/PStyleD.css">
-    <link rel="stylesheet" href="../Model/Css/styleD.css">
-    <link rel="icon" href="../Images/logo.png">
->>>>>>> Stashed changes
     <title>Tecno ODA</title>
+    <div id="header-img">
+        <img src="../Images/13.gif" alt="" style="width: 300px; float: right; ">
+    </div>
     </head>
+    <style>
+        /* 
+        #header-img {
+            margin-bottom: 20px; 
+            text-align: center; 
+
+        .message-1 {
+            background-color: white; 
+            border-radius: 10px;
+            padding: 10px; 
+            margin: 10px auto; 
+            width: 25%; 
+            text-align: center; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-right: 600px;
+            position: absolute;
+            top: 650px;   
+            left: 1400px;  
+        }
+        .message-2 {
+            background-color: white; 
+            border-radius: 10px;
+            padding: 10px; 
+            margin: 10px auto; 
+            width: 25%; 
+            text-align: center; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+            margin-right: 600px;
+            position: absolute;
+            top: 600px;   
+            left: 1400px;  
+        }
+        .message-3 {
+            background-color: white; 
+            border-radius: 10px;
+            padding: 10px; 
+            margin: 10px auto; 
+            width: 25%; 
+            text-align: center; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-right: 600px;
+            position: absolute;
+            top: 700px;   
+            left: 1400px; 
+        }
+        .message-4 {
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px; 
+            margin: 10px auto; 
+            width: 25%; /* Anchura del recuadro 
+            text-align: center; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+            margin-right: 600px;
+            position: absolute;
+            top: 750px;   
+            left: 1400px; 
+        }
+        .message-5 {
+            background-color: white; 
+            border-radius: 10px;
+            padding: 10px; 
+            margin: 10px auto; 
+            width: 25%; 
+            text-align: center; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+            margin-right: 600px;
+            position: absolute;
+            top: 800px;   
+            left: 1400px;  
+        }
+        .message-6 {
+            background-color: white; 
+            border-radius: 10px;
+            padding: 10px; 
+            margin: 10px auto; 
+            width: 25%; 
+            text-align: center; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+            margin-right: 600px;
+            position: absolute;
+            top: 850px;   
+            left: 1400px;  
+        }
+    </style>
+    
 <body>
+    
+       <!-- Recuadros de información debajo de la imagen -->
+<div class="message-1">
+    <!-- Contenido del primer cuadro -->
+    <p></p>
+</div>
+<div class="message-2">
+    <!-- Contenido del segundo cuadro -->
+    <p></p>
+</div>
+<div class="message-3">
+    <!-- Contenido del primer cuadro -->
+    <p></p>
+</div>
+<div class="message-4">
+    <!-- Contenido del segundo cuadro -->
+    <p></p>
+</div>
+<div class="message-5">
+    <!-- Contenido del segundo cuadro -->
+    <p></p>
+</div>
+<div class="message-6">
+    <!-- Contenido del segundo cuadro -->
+    <p></p>
+</div> */
     <header id="arriba" class="parallax">
         <div id="header-img">
-            <img src="../Images/logo.png">
+            <img src="imagenes/logo.png">
         </div>
         <div class="exp-text">
             <div>
