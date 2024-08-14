@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-08-2024 a las 22:38:36
+-- Tiempo de generación: 14-08-2024 a las 21:53:50
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -84,8 +84,7 @@ INSERT INTO `documento` (`ID`, `documento`) VALUES
 CREATE TABLE `productos` (
   `ID` int(11) NOT NULL,
   `Nombre` varchar(25) DEFAULT NULL,
-  `Cantidad` int(11) DEFAULT NULL,
-  `Proveedor` int(11) DEFAULT NULL,
+  `Cantidad` int(11) NOT NULL,
   `Valor` int(11) DEFAULT NULL,
   `Ubicacion` varchar(30) DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
@@ -94,16 +93,12 @@ CREATE TABLE `productos` (
   `Descripcion` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `proveedor`
+-- Volcado de datos para la tabla `productos`
 --
 
-CREATE TABLE `proveedor` (
-  `ID` int(11) NOT NULL,
-  `Proveedor` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `productos` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fecha`, `Marca`, `Codigo`, `Descripcion`) VALUES
+(6, 'Computador', 1, 10000, 'Bogota D.C.', '2024-08-14', 'Asus', 101, 'Pc en buen estado y totalmente funcional');
 
 -- --------------------------------------------------------
 
@@ -133,7 +128,7 @@ CREATE TABLE `registro` (
 
 INSERT INTO `registro` (`ID`, `Cargo`, `Usuario`, `P_Nombre`, `P_Apellido`, `Tipo_Doc`, `Num_Doc`, `Correo`, `Telefono`, `Contrasenia`, `Direccion`, `token_password`, `token_request`) VALUES
 (2, 1, 'a', 'a', 'a', 7, '1', '1', '1', '1', NULL, NULL, NULL),
-(3, 1, 'Ale', 'Mauro', 'Moreno', 7, NULL, 'gokussjxddd1@gmail.com', '3213639957', '123', NULL, '4564987987894161', 1),
+(3, 1, 'Ale', 'Mauro', 'Moreno', 7, NULL, 'gokussjxddd1@gmail.com', '3213639957', '159', NULL, NULL, 0),
 (5, 1, 's', 's', 's', 7, NULL, 'a@gmail.com', '321', '12', NULL, NULL, NULL),
 (7, 8, 'Contacto', 'Contacto', 'Correo', 7, NULL, 'TecnoODA@outlook.com', '1', 'pato5', NULL, NULL, 0),
 (8, 2, 'Andres', 'Andres', 'Vasquez', 8, NULL, 'martinesandres526@gmail.com', '3248757667', 'andres123', NULL, NULL, 0),
@@ -167,13 +162,6 @@ ALTER TABLE `documento`
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `Proveedor` (`Proveedor`);
-
---
--- Indices de la tabla `proveedor`
---
-ALTER TABLE `proveedor`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -210,13 +198,7 @@ ALTER TABLE `documento`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `proveedor`
---
-ALTER TABLE `proveedor`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `registro`
@@ -227,12 +209,6 @@ ALTER TABLE `registro`
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `productos`
---
-ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`Proveedor`) REFERENCES `proveedor` (`ID`);
 
 --
 -- Filtros para la tabla `registro`
