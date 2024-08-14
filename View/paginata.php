@@ -1,3 +1,13 @@
+<?php
+    require '../View/cortina.php';
+    require '../View/Header.php';
+    require '../Controller/conexion.php';
+    $db = new Database();
+    $conexion = $db->conectar();
+
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -209,19 +219,59 @@ body{
 
     <table class="table table-bordered">
         <thead class="thead-dark">
-            <tr>
-                <th>Nombre</th>
-                <th>Cantidad</th>
-                <th>Proveedor</th>
-                <th>Valor</th>
-                <th>Ubicación</th>
-                <th>Fecha</th>
-                <th>Marca</th>
-                <th>Código de Barras</th>
-                <th>Descripción</th>
-                <th>Editar</th>
-                <th>Borrar</th>
-            </tr>
+           <?php
+    try {
+        $db = new Database(); // Crea una instancia de la clase Database
+        $conexion = $db->conectar(); // Obtiene la conexión PDO
+        $observar = "SELECT * FROM productos";
+        $statement = $conexion->query($observar);
+        if ($statement) {// Verifica si la consulta se ejecutó correctamente
+            echo '
+                <tr>	
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Proveedor</th>
+                    <th>Valor</th>
+                    <th>Ubicación</th>
+                    <th>Fecha</th>
+                    <th>Marca</th>
+                    <th>Codigo de Barras</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
+                </tr>';
+    
+            while ($filas = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $nombre = $filas['Nombre'];
+                $cantidad = $filas['Cantidad'];
+                $valor = $filas['Valor'];
+                $ubicacion = $filas['Ubicacion'];
+                $fecha = $filas['Fecha'];
+                $marca = $filas['Marca'];
+                $codigo = $filas['Codigo'];
+                $descripcion = $filas['Descripcion'];
+    
+                echo '<tr align="center">
+                        <td>' . $nombre . '</td>
+                        <td>' . $cantidad . '</td>
+                        <td>' . $valor . '</td>
+                        <td>' . $ubicacion . '</td>
+                        <td>' . $fecha . '</td>
+                        <td>' . $marca . '</td>
+                        <td>' . $codigo . '</td>
+                        <td>' . $descripcion . '</td>
+
+                    </tr>';
+            }
+            echo '</table>';
+        } 
+        else 
+        {   echo 'Error en la consulta.';
+        }
+    } 
+    catch (PDOException $e) 
+        {   die("Error en conexión a la base de datos: " . $e->getMessage());
+        }
+           ?>
         </thead>
     </table>
     
@@ -241,17 +291,17 @@ body{
             <center>
                 <form action="../View/InsertarProductos.php" method="POST">
                     <h1>Registro de Productos</h1>
-                    <input type="text" id="nombre" placeholder="Nombre" class="form-control w-25">
-                    <input type="number" id="cantidad" placeholder="Cantidad" class="form-control w-25">
-                    <input type="text" id="proveedor" placeholder="Proveedor" class="form-control w-25">
-                    <input type="number" id="valor" placeholder="Valor" class="form-control w-25">
-                    <input type="text" id="ubicacion" placeholder="Ubicación" class="form-control w-25">
-                    <input type="date" id="fecha" placeholder="Fecha" class="form-control w-25">
-                    <input type="text" id="marca" placeholder="Marca" class="form-control w-25">
-                    <input type="number" id="codigo_barras" placeholder="Código de barras" class="form-control w-25">
-                    <input type="text" id="descripcion" placeholder="Descripción" class="form-control w-25">
+                    <input name="nombre" type="text" id="nombre" placeholder="Nombre" class="form-control w-25">
+                    <input name="cantidad" type="number" id="cantidad" placeholder="Cantidad" class="form-control w-25">
+                    <input name="proveedor" type="text" id="proveedor" placeholder="Proveedor" class="form-control w-25">
+                    <input name="valor" type="number" id="valor" placeholder="Valor" class="form-control w-25">
+                    <input name="ubicacion" type="text" id="ubicacion" placeholder="Ubicación" class="form-control w-25">
+                    <input name="fecha" type="date" id="fecha" placeholder="Fecha" class="form-control w-25">
+                    <input name="marca" type="text" id="marca" placeholder="Marca" class="form-control w-25">
+                    <input name="codigo" type="number" id="codigo_barras" placeholder="Código de barras" class="form-control w-25">
+                    <input name="descripcion" type="text" id="descripcion" placeholder="Descripción" class="form-control w-25">
                     
-                    <input type="submit" name="accion" value="Agregar Producto">
+                    <input type="submit" name="enviar" value="Agregar Producto">
                    
                     <button type="button" id="closeButton">Cerrar</button>
                     
