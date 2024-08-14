@@ -12,8 +12,8 @@
         <img src="../Images/13.gif" alt="" style="width: 300px; float: right; ">
     </div>
     </head>
-    <style>
-        /* 
+    <style>/* 
+        
         #header-img {
             margin-bottom: 20px; 
             text-align: center; 
