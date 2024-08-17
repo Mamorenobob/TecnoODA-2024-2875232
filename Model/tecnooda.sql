@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-08-2024 a las 21:53:50
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 18-08-2024 a las 00:15:32
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -90,15 +90,20 @@ CREATE TABLE `productos` (
   `Fecha` date DEFAULT NULL,
   `Marca` varchar(25) DEFAULT NULL,
   `Codigo` int(11) DEFAULT NULL,
-  `Descripcion` varchar(200) DEFAULT NULL
+  `Descripcion` varchar(200) DEFAULT NULL,
+  `Proveedor` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fecha`, `Marca`, `Codigo`, `Descripcion`) VALUES
-(6, 'Computador', 1, 10000, 'Bogota D.C.', '2024-08-14', 'Asus', 101, 'Pc en buen estado y totalmente funcional');
+INSERT INTO `productos` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fecha`, `Marca`, `Codigo`, `Descripcion`, `Proveedor`) VALUES
+(6, 'Computador', 1, 10000, 'Bogota D.C.', '2024-08-14', 'Asus', 101, 'Pc en buen estado y totalmente funcional', 'Josue'),
+(9, 'Tablet', 5, 450000, 'Bogota', '2024-08-17', 'Asus', 1000001, 'Se encuentran en un bien estado y estas listas para la venta', 'Jusepe'),
+(10, 'Tablet', 5, 450000, 'Bogota', '2024-08-17', 'Asus', 1000001, 'Se encuentran en un bien estado y estas listas para la venta', 'Jusepe'),
+(11, 'Tablet', 5, 450000, 'Bogota', '2024-08-17', 'Asus', 1000001, 'Se encuentran en un bien estado y estas listas para la venta', 'Jusepe'),
+(12, 'Tablet', 1, 1, '1', '2024-08-06', '1', 1, '1', '1');
 
 -- --------------------------------------------------------
 
@@ -134,7 +139,8 @@ INSERT INTO `registro` (`ID`, `Cargo`, `Usuario`, `P_Nombre`, `P_Apellido`, `Tip
 (8, 2, 'Andres', 'Andres', 'Vasquez', 8, NULL, 'martinesandres526@gmail.com', '3248757667', 'andres123', NULL, NULL, 0),
 (9, 1, 'Tecno', 'a', 'a', 7, NULL, 'TecnoODA@outlook.com', '121', '123', NULL, NULL, 1),
 (10, 2, 'Demond', 'Ale', 'Mor', 7, '1456788410', 'mamoreno.bob@gmail.com', '321459782', '123456789', NULL, NULL, 0),
-(11, 8, 'ZDELMAXZ', 'Cris', 'Pam', 8, '156456165', 'camilo.milo177@gmail.com', '3215616', '123', NULL, NULL, 0);
+(11, 8, 'ZDELMAXZ', 'Cris', 'Pam', 8, '156456165', 'camilo.milo177@gmail.com', '3215616', '123', NULL, NULL, 0),
+(12, 9, 'Pes', 'Pepe', 'Pasa', 7, '1561561', 'pepito@gmail.com', '321654987', '1', NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -198,13 +204,13 @@ ALTER TABLE `documento`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas

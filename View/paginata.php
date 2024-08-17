@@ -4,7 +4,13 @@
     require '../Controller/conexion.php';
     $db = new Database();
     $conexion = $db->conectar();
-
+    if (isset($_GET['mensaje'])) {
+        if ($_GET['mensaje'] == 'success') {
+            echo "<script>alert('Producto agregado exitosamente');</script>";
+        } elseif ($_GET['mensaje'] == 'error') {
+            echo "<script>alert('Error al agregar el producto');</script>";
+        }
+    }
     
 ?>
 
@@ -217,63 +223,70 @@ body{
 </div>
 
 
-    <table class="table table-bordered">
-        <thead class="thead-dark">
-           <?php
-    try {
-        $db = new Database(); // Crea una instancia de la clase Database
-        $conexion = $db->conectar(); // Obtiene la conexión PDO
-        $observar = "SELECT * FROM productos";
-        $statement = $conexion->query($observar);
-        if ($statement) {// Verifica si la consulta se ejecutó correctamente
-            echo '
-                <tr>	
-                    <th>Nombre</th>
-                    <th>Cantidad</th>
-                    <th>Proveedor</th>
-                    <th>Valor</th>
-                    <th>Ubicación</th>
-                    <th>Fecha</th>
-                    <th>Marca</th>
-                    <th>Codigo de Barras</th>
-                    <th>Editar</th>
-                    <th>Borrar</th>
-                </tr>';
-    
-            while ($filas = $statement->fetch(PDO::FETCH_ASSOC)) {
-                $nombre = $filas['Nombre'];
-                $cantidad = $filas['Cantidad'];
-                $valor = $filas['Valor'];
-                $ubicacion = $filas['Ubicacion'];
-                $fecha = $filas['Fecha'];
-                $marca = $filas['Marca'];
-                $codigo = $filas['Codigo'];
-                $descripcion = $filas['Descripcion'];
-    
-                echo '<tr align="center">
-                        <td>' . $nombre . '</td>
-                        <td>' . $cantidad . '</td>
-                        <td>' . $valor . '</td>
-                        <td>' . $ubicacion . '</td>
-                        <td>' . $fecha . '</td>
-                        <td>' . $marca . '</td>
-                        <td>' . $codigo . '</td>
-                        <td>' . $descripcion . '</td>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>	
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Proveedor</th>
+            <th>Valor</th>
+            <th>Ubicación</th>
+            <th>Fecha</th>
+            <th>Marca</th>
+            <th>Codigo de Barras</th>
+            <th>Descripción</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php
+    $observar = "SELECT * FROM productos";
+    $statement = $conexion->query($observar);
 
-                    </tr>';
-            }
-            echo '</table>';
-        } 
-        else 
-        {   echo 'Error en la consulta.';
+    if ($statement) {
+        while ($filas = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $id = $filas['ID'];
+            $nombre = $filas['Nombre'];
+            $cantidad = $filas['Cantidad'];
+            $proveedor = $filas['Proveedor'];
+            $valor = $filas['Valor'];
+            $ubicacion = $filas['Ubicacion'];
+            $fecha = $filas['Fecha'];
+            $marca = $filas['Marca'];
+            $codigo = $filas['Codigo'];
+            $descripcion = $filas['Descripcion'];
+
+            echo '<tr align="center">
+                    <td>' . $id . '</td>
+                    <td>' . $nombre . '</td>
+                    <td>' . $cantidad . '</td>
+                    <td>' . $proveedor . '</td>
+                    <td>' . $valor . '</td>
+                    <td>' . $ubicacion . '</td>
+                    <td>' . $fecha . '</td>
+                    <td>' . $marca . '</td>
+                    <td>' . $codigo . '</td>
+                    <td>' . $descripcion . '</td>
+                    <td>
+                        <button onclick="openEditForm(' . "'" . $nombre . "','" . $cantidad . "','" . $proveedor . "','" . $valor . "','" . $ubicacion . "','" . $fecha . "','" . $marca . "','" . $codigo . "','" . $descripcion . "'" . ')">Editar</button>
+                    </td>
+                    <td>
+                        <form action="../View/InsertarProductos.php" method="POST" onsubmit="return confirm(\'¿Estás seguro de eliminar este producto?\');">
+                            <input type="hidden" name="id" value="' . $id . '">
+                            <button type="submit" name="eliminar">Borrar</button>
+                        </form>
+                    </td>
+                </tr>';
         }
-    } 
-    catch (PDOException $e) 
-        {   die("Error en conexión a la base de datos: " . $e->getMessage());
-        }
-           ?>
-        </thead>
-    </table>
+    } else {
+        echo "<tr><td colspan='10'>No se encontraron productos.</td></tr>";
+    }
+    ?>
+    </tbody>
+</table>
+
     
     <button href="../TecnoODA/View/index.php" type="button" class="btn btn-outline-light" id="backButton" onclick="window.location.href='paginaInicio.php';">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
@@ -311,27 +324,32 @@ body{
     </center>
 
     <!-- Formulario para editar productos -->
-    <center>
-        <div id="editFormContainer">
-            <center>
-                <form action="../View/InsertarProductos.php" method="POST">
-                    <h1>Editar Producto</h1>
-                    <input type="text" id="edit_nombre" placeholder="Nombre" class="form-control w-25">
-                    <input type="number" id="edit_cantidad" placeholder="Cantidad" class="form-control w-25">
-                    <input type="text" id="edit_proveedor" placeholder="Proveedor" class="form-control w-25">
-                    <input type="number" id="edit_valor" placeholder="Valor" class="form-control w-25">
-                    <input type="text" id="edit_ubicacion" placeholder="Ubicación" class="form-control w-25">
-                    <input type="date" id="edit_fecha" placeholder="Fecha" class="form-control w-25">
-                    <input type="text" id="edit_marca" placeholder="Marca" class="form-control w-25">
-                    <input type="number" id="edit_codigo_barras" placeholder="Código de barras" class="form-control w-25">
-                    <input type="text" id="edit_descripcion" placeholder="Descripción" class="form-control w-25">
-                    
-                    <input type="submit" name="accion" value="Actualizar Producto">
-                   
-                    <button type="button" id="closeEditButton">Cerrar</button>
-                    
-                </form>
-            </center>
+  <center>
+    <div id="editFormContainer">
+        <center>
+            <form action="../View/InsertarProductos.php" method="POST">
+                <h1>Editar Producto</h1>
+                <!-- Campo oculto para el ID -->
+                <input type="hidden" name="edit_id" id="edit_id">
+
+                <input type="text" name="edit_nombre" id="edit_nombre" placeholder="Nombre" class="form-control w-25">
+                <input type="number" name="edit_cantidad" id="edit_cantidad" placeholder="Cantidad" class="form-control w-25">
+                <input type="text" name="edit_proveedor" id="edit_proveedor" placeholder="Proveedor" class="form-control w-25">
+                <input type="number" name="edit_valor" id="edit_valor" placeholder="Valor" class="form-control w-25">
+                <input type="text" name="edit_ubicacion" id="edit_ubicacion" placeholder="Ubicación" class="form-control w-25">
+                <input type="date" name="edit_fecha" id="edit_fecha" placeholder="Fecha" class="form-control w-25">
+                <input type="text" name="edit_marca" id="edit_marca" placeholder="Marca" class="form-control w-25">
+                <input type="number" name="edit_codigo_barras" id="edit_codigo_barras" placeholder="Código de barras" class="form-control w-25">
+                <input type="text" name="edit_descripcion" id="edit_descripcion" placeholder="Descripción" class="form-control w-25">
+                
+                <input type="submit" name="accion" value="Actualizar Producto">
+               
+                <button type="button" id="closeEditButton">Cerrar</button>
+                
+            </form>
+        </center>
+    </div>
+</center>
         </div>
     </center>
 
@@ -371,7 +389,7 @@ body{
             });
         });
 
-        function openEditForm(nombre, cantidad, proveedor, valor, ubicacion, fecha, marca, codigo, codigo_barras, descripcion) {
+        function openEditForm(nombre, cantidad, proveedor, valor, ubicacion, fecha, marca, codigo, descripcion) {
             document.getElementById('edit_nombre').value = nombre;
             document.getElementById('edit_cantidad').value = cantidad;
             document.getElementById('edit_proveedor').value = proveedor;
@@ -379,12 +397,12 @@ body{
             document.getElementById('edit_ubicacion').value = ubicacion;
             document.getElementById('edit_fecha').value = fecha;
             document.getElementById('edit_marca').value = marca;
-            document.getElementById('edit_codigo').value = codigo;
-            document.getElementById('edit_codigo_barras').value = codigo_barras;
+            document.getElementById('edit_codigo_barras').value = codigo; // Corregido
             document.getElementById('edit_descripcion').value = descripcion;
 
             document.getElementById('editFormContainer').classList.add('open');
         }
+
         
     </script>
 </body>
