@@ -47,7 +47,7 @@ if ($stmt->rowCount() > 0) {
     $stmt->bindParam(':num_doc', $num_doc);
     $stmt->bindParam(':correo', $correo);
     $stmt->bindParam(':tel', $tel);
-    $stmt->bindParam(':pw', $hashed_pw); // Usar la contraseña encriptada
+    $stmt->bindParam(':pw', $pw); // Usar la contraseña encriptada
     
     // Ejecutar la consulta
     if ($stmt->execute()) {

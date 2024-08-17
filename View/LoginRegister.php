@@ -1,5 +1,29 @@
 <?php
     session_start();
+    
+    // Verificar si la sesión ya está activa
+    if (isset($_SESSION['Usuario']) && isset($_SESSION['Cargo'])) {
+        // Redirigir según el cargo
+        switch ($_SESSION['Cargo']) {
+            case 1:
+                header("Location: ../View/Prueba-Distribuidor.php");
+                break;
+            case 2:
+                header("Location: ../View/#");
+                break;
+            case 8:
+                header("Location: ../View/Prueba-Proveedor1.php");
+                break;
+            case 9:
+                header("Location: ../View/PaginaPrincipal.php");
+                break;
+            default:
+                // Si el cargo no coincide con ninguno de los casos, redirigir a una página predeterminada
+                header("Location: ../View/index.php");
+                break;
+        }
+        exit(); // Salir del script después de la redirección
+    }    
     require '../View/cortina.php';
     require '../View/Header.php';
     require '../Controller/conexion.php';
@@ -7,10 +31,6 @@
     $conexion = $db->conectar();
     if($conexion === null){
         die("Error de la conexion a la base de datos");
-    }
-    
-    if(isset($_SESSION['Usuario'])){
-        header("location:PaginaPrincipal.php");
     }
     $queryCargo = "SELECT ID, cargo FROM cargo";
     $stmtCargo = $conexion->prepare($queryCargo);

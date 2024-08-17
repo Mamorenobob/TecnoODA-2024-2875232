@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    require '../View/cortina.php';
+    require '../Controller/conexion.php';
+    // Verificar si el usuario no está autenticado
+    if (!isset($_SESSION['Usuario']) || ($_SESSION['Cargo'] != 8)) {
+        echo "<script>
+                alert('No puedes acceder aquí. Debes iniciar sesión.');
+                window.location = 'index.php';
+              </script>";
+        exit();
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -35,6 +49,7 @@
         </nav>
     </header>
     <main>
+    <button><li><a href="../View/cerrar_sesion.php">Cerrar sesión</a></li></button>
         <div class="modal fade" id="modalContacto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

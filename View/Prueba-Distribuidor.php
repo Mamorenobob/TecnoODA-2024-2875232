@@ -1,3 +1,19 @@
+<?php
+    session_start();
+    require '../View/cortina.php';
+    require '../View/Header.php';
+    require '../Controller/conexion.php';
+
+    // Verificar si el usuario no está autenticado
+    if (!isset($_SESSION['Usuario']) || ($_SESSION['Cargo'] != 1)) {
+        echo "<script>
+                alert('No puedes acceder aquí. Debes iniciar sesión.');
+                window.location = 'index.php';
+              </script>";
+        exit();
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
