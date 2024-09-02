@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     header("Location: ../View/Prueba-Distribuidor.php");
                     break;
                 case 2:
-                    header("Location: ../View/#");
+                    header("Location: ../View/Gestor.php");
                     break;
                 case 8:
                     header("Location: ../View/Prueba-Proveedor1.php");
