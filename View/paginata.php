@@ -1,6 +1,4 @@
 <?php
-    require '../View/cortina.php';
-    require '../View/Header.php';
     require '../Controller/conexion.php';
     $db = new Database();
     $conexion = $db->conectar();
@@ -19,28 +17,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="Stylesheet" href="../Model/Css/Fondo1.css">
     <title>Document</title>
-    <div id="header-img">
-        <img src="../Images/13.gif" alt="" style="width: 200px; height:auto; float: right; ">
-    </div>
     <style>
-body{
-    background-image: url(../Images/Fondo1-bell.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-        #logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 100px; /* Ajusta el tamaño de la imagen */
-        }
-
         #formContainer {
             position: relative;
             width: 600px;
@@ -111,7 +89,6 @@ body{
             color: rgb(0, 0, 0);
         }
 
-        /* Estilos para el botón "Volver al Inicio" */
         #backButton {
             position: absolute;
             top: 10px;
@@ -142,10 +119,7 @@ body{
             z-index: 1; /* Asegura que esté detrás del formulario */
             opacity: 0.8; /* Ajusta la opacidad si quieres que sea más tenue */
         }
-    </style>
-</head>
-<style>
-    
+                
 
         /* Estilo para los recuadros de texto */
         .message-1 {
@@ -201,7 +175,8 @@ body{
             right: 800px;  /* Mueve el div 20px hacia la derecha */
         }
    
-</style>
+    </style>
+</head>
 <body>
 
     <!-- Recuadros de información debajo de la imagen -->
