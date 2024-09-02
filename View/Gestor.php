@@ -22,6 +22,7 @@
     <title>Gestor</title>
 </head>
 <body>
+<li><a href="../View/cerrar_sesion.php">Cerrar sesión</a></li>
     <nav>
         <div class="menu-toggle" id="menu-toggle">
             <span class="bar"></span>
@@ -33,7 +34,6 @@
             <li><a href="#">Solicitar Productos</a></li>
             <li><a href="#">Solicitudes</a></li>
             <li><a href="#">Contactos Proveedor</a></li>
-            <button><li><a href="../View/cerrar_sesion.php">Cerrar sesión</a></li></button>
 
         </ul>
     </nav>
