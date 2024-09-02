@@ -1,3 +1,9 @@
+<?php
+
+include '../Controller/conexion.php';
+$db = new Database();
+$conexion = $db->conectar();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,22 +17,6 @@
         <img src="../Images/14.gif" alt="" style="float: right;">
         </div>
 
-<!--<?php 
-   // session_start();
-
-    //include '../Controller/conexion.php';
-    ?>-->
-    <?php
-
-    include '../Controller/conexionPDO.php';
-    $queryCargo = "SELECT ID, cargo FROM cargo";
-    $resultCargo = mysqli_query($conexion, $queryCargo);
-    $queryCargo2 = "SELECT ID, cargo FROM cargo";
-    $resultCargo2 = mysqli_query($conexion, $queryCargo2);
-    
-    $queryDoc = "SELECT ID, documento FROM documento";
-    $resultDoc = mysqli_query($conexion, $queryDoc);
-    ?>
     <style>
         body {
            
