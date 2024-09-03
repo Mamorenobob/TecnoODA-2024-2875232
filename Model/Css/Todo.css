@@ -1,0 +1,113 @@
+
+.contenedor1{
+    max-width: 100%;
+    height: 717px;
+    background-color: red;
+}
+.contenedorTabla1,
+.contenedorTabla2,
+.contenedorTabla3,
+.contenedorTabla4,
+.contenedorTabla5,
+.contenedorTabla6,
+.contenedorTabla7,
+.contenedorTabla8{
+    position: absolute; /* Usar absolute para mantener la posición específica */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Cambia el cursor a puntero */
+    border-radius: 5px;
+}
+.contenedorTabla1{
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 20px;
+    top: 39px;
+}
+.contenedorTabla2{
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 543.5px;
+    top: -260px;
+}
+.contenedorTabla3{
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 1065px;
+    top: -560px;
+}
+.contenedorTabla4{
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 1580px;
+    top: -860px;
+}
+.contenedorTabla5{
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 20px;
+    top: -820px;
+}
+.contenedorTabla6{
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 543.5px;
+    top: -1120px;
+}
+.contenedorTabla7{
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 1065px;
+    top: -1420px;
+}
+.contenedorTabla8{
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 1580px;
+    top: -1720px;
+}
+.contenedorTabla1:hover,
+.contenedorTabla2:hover,
+.contenedorTabla3:hover,
+.contenedorTabla4:hover,
+.contenedorTabla5:hover,
+.contenedorTabla6:hover,
+.contenedorTabla7:hover,
+.contenedorTabla8:hover {
+    transform: scale(1.05); /* Aumenta el tamaño del cuadro al pasar el cursor sobre él */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra para mayor profundidad */
+}
+.texto,
+.texto1,
+.texto2,
+.texto3,
+.texto4,
+.texto5,
+.texto6,
+.texto7{
+    background-color: #555;
+    width: max;
+    height: 50px;
+    position: relative;
+    top: 250px;
+}
+
+
+
+
+
