@@ -31,7 +31,7 @@
         </div>
         <ul class="nav-list" id="nav-list">
             <li><a href="#" data-file="MostrarTablas.php">Tablas</a></li>
-            <li><a href="#">Solicitar Productos</a></li>
+            <li><a href="#" data-file="Solicitudes.php">Solicitar Productos</a></li>
             <li><a href="#">Solicitudes</a></li>
             <li><a href="#">Contactos Proveedor</a></li>
 
