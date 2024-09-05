@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-08-2024 a las 00:15:32
+-- Tiempo de generación: 04-09-2024 a las 23:57:24
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -101,9 +101,7 @@ CREATE TABLE `productos` (
 INSERT INTO `productos` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fecha`, `Marca`, `Codigo`, `Descripcion`, `Proveedor`) VALUES
 (6, 'Computador', 1, 10000, 'Bogota D.C.', '2024-08-14', 'Asus', 101, 'Pc en buen estado y totalmente funcional', 'Josue'),
 (9, 'Tablet', 5, 450000, 'Bogota', '2024-08-17', 'Asus', 1000001, 'Se encuentran en un bien estado y estas listas para la venta', 'Jusepe'),
-(10, 'Tablet', 5, 450000, 'Bogota', '2024-08-17', 'Asus', 1000001, 'Se encuentran en un bien estado y estas listas para la venta', 'Jusepe'),
-(11, 'Tablet', 5, 450000, 'Bogota', '2024-08-17', 'Asus', 1000001, 'Se encuentran en un bien estado y estas listas para la venta', 'Jusepe'),
-(12, 'Tablet', 1, 1, '1', '2024-08-06', '1', 1, '1', '1');
+(10, 'Tablet', 5, 450000, 'Bogota', '2024-08-17', 'Asus', 1000001, 'Se encuentran en un bien estado y estas listas para la venta', 'Jusepe');
 
 -- --------------------------------------------------------
 
@@ -142,6 +140,33 @@ INSERT INTO `registro` (`ID`, `Cargo`, `Usuario`, `P_Nombre`, `P_Apellido`, `Tip
 (11, 8, 'ZDELMAXZ', 'Cris', 'Pam', 8, '156456165', 'camilo.milo177@gmail.com', '3215616', '123', NULL, NULL, 0),
 (12, 9, 'Pes', 'Pepe', 'Pasa', 7, '1561561', 'pepito@gmail.com', '321654987', '1', NULL, NULL, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `solicitudes`
+--
+
+CREATE TABLE `solicitudes` (
+  `ID` int(11) NOT NULL,
+  `Nombre` varchar(25) DEFAULT NULL,
+  `Cantidad` int(11) DEFAULT NULL,
+  `Valor` int(11) DEFAULT NULL,
+  `Ubicacion` varchar(30) DEFAULT NULL,
+  `Fecha` date DEFAULT NULL,
+  `Marca` varchar(25) DEFAULT NULL,
+  `Codigo` int(11) DEFAULT NULL,
+  `Descripcion` varchar(255) DEFAULT NULL,
+  `Proveedor` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `solicitudes`
+--
+
+INSERT INTO `solicitudes` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fecha`, `Marca`, `Codigo`, `Descripcion`, `Proveedor`) VALUES
+(1, 'Movil', 5, 250000, 'Bogota', '2024-09-04', 'Lenovo', 1, 'holaaaaaaaaaa', 'Ricardo'),
+(2, 'Tablet', 1, 22222, 'Bogota', '1111-11-11', '1', 1, '1', '1');
+
 --
 -- Índices para tablas volcadas
 --
@@ -179,6 +204,12 @@ ALTER TABLE `registro`
   ADD KEY `Tipo_Doc` (`Tipo_Doc`);
 
 --
+-- Indices de la tabla `solicitudes`
+--
+ALTER TABLE `solicitudes`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -211,6 +242,12 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `registro`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `solicitudes`
+--
+ALTER TABLE `solicitudes`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas

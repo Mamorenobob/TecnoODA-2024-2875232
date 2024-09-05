@@ -51,7 +51,6 @@
         </form>
         <div id="result" class="result"></div>
     </div>
-
     <script src="Solicitudes.js"></script>
 </body>
 </html>
