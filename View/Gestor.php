@@ -22,7 +22,6 @@
     <title>Gestor</title>
 </head>
 <body>
-<li><a href="../View/cerrar_sesion.php">Cerrar sesión</a></li>
     <nav>
         <div class="menu-toggle" id="menu-toggle">
             <span class="bar"></span>
@@ -31,11 +30,11 @@
         </div>
         <ul class="nav-list" id="nav-list">
             <li><a href="#" data-file="MostrarTablas.php">Tablas</a></li>
-            <li><a href="#">Solicitar Productos</a></li>
-            <li><a href="#">Solicitudes</a></li>
+            <li><a href="#" data-file="Solicitudes.php">Solicitar Productos</a></li>
+            <li><a href="#" data-file="mostrar.solicitudes.php">Solicitudes</a></li>
             <li><a href="#">Contactos Proveedor</a></li>
-
         </ul>
+        <li><a href="../View/cerrar_sesion.php">Cerrar sesión</a></li>
     </nav>
     <div id="content">
         <!-- Aquí se cargará el contenido -->

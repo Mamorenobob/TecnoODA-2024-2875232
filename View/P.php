@@ -1,3 +1,18 @@
+<?php
+  session_start();
+    require '../View/cortina.php';
+    require '../Controller/conexion.php';
+
+    // Verificar si el usuario no está autenticado
+    if (!isset($_SESSION['Usuario']) || ($_SESSION['Cargo'] != 9)) {
+        echo "<script>
+                alert('No puedes acceder aquí. Debes iniciar sesión.');
+                window.location = 'index.php';
+              </script>";
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -30,7 +45,7 @@
 
 					<div class="container-user">
 						<i class="fa-solid fa-user"></i>
-						<span class="text">Cerrar sesion</span>
+						<li><a href="../View/cerrar_sesion.php">Cerrar sesión</a></li>
 						</div>
 					</div>
 				</div>

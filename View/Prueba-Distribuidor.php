@@ -20,9 +20,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Distribución de Tecnología</title>
-    <link rel="stylesheet" href="D-Style.css">
+    <link rel="stylesheet" href="../Model/Css/D-Style.css">
 </head>
 <body>
+<li><a href="../View/cerrar_sesion.php">Cerrar sesión</a></li>
     <header>
         <nav>
             <ul>
