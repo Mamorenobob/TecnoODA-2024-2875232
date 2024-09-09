@@ -39,49 +39,41 @@
                         <a class="nav-link" href="../View/index.php">Inicio <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Productos solicitados</a>
+                        <a class="nav-link" id="productos-solicitados" href="#">Productos solicitados</a>
                     </li>
-                <label class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContacto">Contactar Proveedor</a>
-                </label>
+                    <label class="nav-item">
+                        <a class="nav-link" href="#" id="contactar-tienda" data-toggle="modal" data-target="#modalContacto">Contactar Tienda</a>
+                    </label>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../View/LoginRegister.php">Cerrar Sesion <span class="sr-only">(current)</span></a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
     <main>
-    <button><li><a href="../View/cerrar_sesion.php">Cerrar sesión</a></li></button>
-        <div class="modal fade" id="modalContacto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <label class="nav-item">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Correo electrónico</label>
-                                <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico">
-                            </div>
-                            <div class="form-group">
-                                <label for="mensaje">Mensaje</label>
-                                <textarea class="form-control" id="mensaje" placeholder="Ingrese su mensaje"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Enviar</button>
-                    </div>
+    <div class="modal fade" id="modalContacto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="nav-item">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Lista de Tiendas</h2>
+                    <ul id="lista-tiendas"></ul>
+                    <div id="informacion-tienda"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -128,3 +120,79 @@
                             <span class="sr-only">Siguiente</span>
                         </a>
                             <span class="sr-only">Siguiente</span>
+
+                            <div id="tabla-productos" style="display: none;">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th style="color: #FFFFFF;">Nombre</th>
+                                            <th style="color: #FFFFFF;">Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabla-body" style="color: #00698f;">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <script>
+                                document.getElementById("productos-solicitados").addEventListener("click", function() {
+                                    var tabla = document.getElementById("tabla-productos");
+                                    tabla.style.display = "block";
+                                    
+                                    
+                                    var productos = [
+                                        { nombre: "Producto 1", cantidad: 10 },
+                                        { nombre: "Producto 2", cantidad: 20 },
+                                        { nombre: "Producto 3", cantidad: 30 }
+                                    ];
+                                    
+                                    var tablaBody = document.getElementById("tabla-body");
+                                    tablaBody.innerHTML = "";
+                                    
+                                    productos.forEach(function(producto) {
+                                        var row = document.createElement("tr");
+                                        var nombreCell = document.createElement("td");
+                                        var cantidadCell = document.createElement("td");
+                                        
+                                       
+                                        nombreCell.style.color = "#00FF00";
+                                        cantidadCell.style.color = "#00FF00"; 
+                                        
+                                        nombreCell.textContent = producto.nombre;
+                                        cantidadCell.textContent = producto.cantidad;
+                                        
+                                        row.appendChild(nombreCell);
+                                        row.appendChild(cantidadCell);
+                                        
+                                        tablaBody.appendChild(row);
+                                    });
+                                });
+                                // Tabla de productos
+
+                                document.getElementById("contactar-tienda").addEventListener("click", function() {
+                                    var tiendas = [
+                                        { nombre: "Tienda 1", direccion: "Calle 1", telefono: "123456789", email: "tienda1@gmail.com" },
+                                        { nombre: "Tienda 2", direccion: "Calle 2", telefono: "987654321", email: "tienda2@gmail.com" },
+                                        { nombre: "Tienda 3", direccion: "Calle 3", telefono: "555555555", email: "tienda3@gmail.com" }
+                                    ];
+                                    
+                                    var listaTiendas = document.getElementById("lista-tiendas");
+                                    listaTiendas.innerHTML = "";
+                                    
+                                    tiendas.forEach(function(tienda) {
+                                        var item = document.createElement("li");
+                                        item.textContent = tienda.nombre;
+                                        item.addEventListener("click", function() {
+                                            var informacionTienda = document.getElementById("informacion-tienda");
+                                            informacionTienda.innerHTML = "";
+                                            informacionTienda.innerHTML = `
+                                                <h3>${tienda.nombre}</h3>
+                                                <p>Dirección: ${tienda.direccion}</p>
+                                                <p>Teléfono: ${tienda.telefono}</p>
+                                                <p>Email: ${tienda.email}</p>
+                                            `;
+                                        });
+                                        listaTiendas.appendChild(item);
+                                    });
+                                });
+                            </script>
+                                    
