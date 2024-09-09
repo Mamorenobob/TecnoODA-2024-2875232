@@ -1,7 +1,7 @@
 <?php
     session_start();
     require '../View/cortina.php';
-    require '../View/Header.php';
+    //require '../View/Header.php';
     require '../Controller/conexion.php';
 
     // Verificar si el usuario no está autenticado
@@ -12,6 +12,7 @@
               </script>";
         exit();
     }
+    
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +24,9 @@
     <link rel="stylesheet" href="../Model/Css/D-Style.css">
 </head>
 <body>
-<li><a href="../View/cerrar_sesion.php">Cerrar sesión</a></li>
+        <li class="nav-item active">
+                <a class="nav-link" href="../View/cerrar_sesion.php">Cerrar Sesion</a>
+        </li>
     <header>
         <nav>
             <ul>
@@ -38,27 +41,27 @@
         <section id="EMPRESA 1">
             <h2>EMPRESA 1</h2>
             <p>Informacion del producto y vista previa.</p>
-            <img src="Images/1.png" alt="Imagen del producto">
+            <img src="../Images/1.png" alt="Imagen del producto">
         </section>
         <section id="EMPRESA 2">
             <h2>EMPRESA 2</h2>
             <p>Informacion del producto y vista previa.</p>
-            <img src="Images/1.png" alt="Imagen del producto">
+            <img src="../Images/1.png" alt="Imagen del producto">
         </section>
         <section id="EMPRESA 3">
             <h2>EMPRESA 3</h2>
             <p>Informacion del producto y vista previa.</p>
-            <img src="Images/1.png" alt="Imagen del producto">
+            <img src="../Images/1.png" alt="Imagen del producto">
         </section>
         <section id="EMPRESA 4">
             <h2>EMPRESA 4</h2>
             <p>Informacion del producto y vista previa.</p>
-            <img src="Images/1.png" alt="Imagen del producto">
+            <img src="../Images/1.png" alt="Imagen del producto">
         </section>
     </main>
     <footer>
         <div class="cart-button-container">
-          <img src="Images/car.png" alt="Imagen del carrito de envío" class="button" id="cart-button">
+          <img src="../Images/car.png" alt="Imagen del carrito de envío" class="button" id="cart-button">
         </div>
       </footer>
         <form id="request-form" style="display: none; text-align: center; color: #000;">
@@ -79,3 +82,6 @@
     </script>
 </body>
 </html>
+<?php
+    require '../View/Footer.php';
+?>
