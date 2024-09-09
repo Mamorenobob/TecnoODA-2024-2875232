@@ -31,6 +31,7 @@
 		<title>Tecno ODA</title>
 		<link rel="icon" href="logo.png">
 		<link rel="stylesheet" href="../Model/Css/CSS_Admin.css" />
+        <script src="../Model/JavaScript/Admin.js"></script>
 	</head>
 	<body>
 		<header>
@@ -64,8 +65,10 @@
 				<nav class="navbar container">
 					<i class="fa-solid fa-bars"></i>
 					<ul class="menu">
-						<li><a href="#">Productos</a></li>
-						<li><a href="#" id="toggleButton">Mostrar Formulario</a></li>
+                        <li><a href="#" data-file="MostrarTablas.php">Tablas</a></li>
+                        <li><a href="#" data-file="Solicitudes.php">Solicitar Productos</a></li>
+                        <li><a href="#" data-file="mostrar.solicitudes.php">Solicitudes</a></li>
+                        <li><a href="#">Contactos Proveedor</a></li>
 					</ul>
 
 					<form class="search-form">
@@ -78,7 +81,12 @@
 			</div>
 		</header>
 
-   
+<section class="container container-features">
+        <!-- Otros contenidos -->
+
+        <!-- Contenedor para mostrar la información cargada -->
+        <div id="contenedor_info"></div>
+</section>
         <nav>
 
 		<section class="banner">
