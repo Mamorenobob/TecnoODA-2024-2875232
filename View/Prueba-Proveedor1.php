@@ -45,7 +45,7 @@
                         <a class="nav-link" href="#" id="contactar-tienda" data-toggle="modal" data-target="#modalContacto">Contactar Tienda</a>
                     </label>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../View/LoginRegister.php">Cerrar Sesion <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../View/cerrar_sesion.php">Cerrar Sersion</a>
                     </li>
                 </ul>
             </div>
