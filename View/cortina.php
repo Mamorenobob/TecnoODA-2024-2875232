@@ -7,7 +7,7 @@
     height: 100%;
     background-color: rgba(0, 128, 255, 0.9);
     z-index: 9999;
-    transition: transform 2s ease-out;
+    transition: transform 0.5s ease-out;
     transform: translateY(0);
 }
 </style>
