@@ -202,10 +202,12 @@ html {
 /*               BANNER               */
 /* ********************************** */
 .banner {
-	background-image: url(logo.png);
-	height: 60rem;
-	background-size: cover;
-	background-position: center;
+	margin: 0;
+	padding: 0;
+	height: 185vh;
+	background: linear-gradient(to bottom, #8909d6, #260062);
+	background-size: 100% 200%;
+	animation: wave 5s infinite alternate;
 }
 
 .content-banner {
@@ -774,3 +776,161 @@ html {
 		font-size: 1.6rem;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+#logo {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 100px; /* Ajusta el tamaño de la imagen */
+}
+
+#formContainer {
+	position: relative;
+	width: 600px;
+	background-color: #f1f1f1;
+	border: 3px solid #110e0e;
+	padding: 20px;
+	transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+	opacity: 0;
+	visibility: hidden;
+	text-align: center;
+	border-radius: 10px;
+	z-index: 10; /* Asegura que esté sobre la tabla */
+}
+
+#formContainer.open, #editFormContainer.open {
+	opacity: 1;
+	visibility: visible;
+}
+#editFormContainer{    position: relative;
+	width: 600px;
+	background-color: #f1f1f1;
+	border: 3px solid #110e0e;
+	padding: 20px;
+	transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+	opacity: 0;
+	visibility: hidden;
+	text-align: center;
+	border-radius: 10px;
+	z-index: 10; /* Asegura que esté sobre la tabla */
+
+
+}
+
+
+
+
+
+button:hover {
+	background-color: #000000;
+}
+
+.form-control {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 8px;
+	border: 4px solid #000000;
+	border-radius: 4px;
+}
+
+.w-25 {
+	width: 25%;
+}
+
+/* Estilos para el botón "Volver al Inicio" */
+#backButton {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	color: #000000;
+	background: linear-gradient(to bottom, #ffffff, #ccc);
+	border: 5px solid #0217d6;
+	border-radius: 20px;
+	width: 10%;
+}
+
+
+table {
+	position: absolute;
+	display: block;
+	top: 150px;
+	left: 40px;
+	z-index: 1; /* Asegura que esté detrás del formulario */
+	opacity: 0.8; /* Ajusta la opacidad si quieres que sea más tenue */
+}
+
+
+
+
+
+
+
+
+
+
+    
+
+        /* Estilo para los recuadros de texto */
+        .message-1 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 1050px;   /* Mueve el div 10px hacia abajo */
+            right: 800px;  /* Mueve el div 20px hacia la derecha */
+        }
+        .message-2 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 1100px;   /* Mueve el div 10px hacia abajo */
+            right: 800px;  /* Mueve el div 20px hacia la derecha */
+        }
+        .message-3 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 1150px;   /* Mueve el div 10px hacia abajo */
+            right: 800px;  /* Mueve el div 20px hacia la derecha */
+        }
+        .message-4 {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            padding: 10px; /* Espaciado interno */
+            margin: 10px auto; /* Espacio entre recuadros y centrado */
+            width: 25%; /* Anchura del recuadro */
+            text-align: center; /* Texto centrado dentro del recuadro */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-right: 600px;
+            position: absolute;
+            top: 1200px;   /* Mueve el div 10px hacia abajo */
+            right: 800px;  /* Mueve el div 20px hacia la derecha */
+        }
