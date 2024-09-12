@@ -21,7 +21,7 @@ $conexion = $db->conectar();
 <body>
     <div class="container mt-5">
         <h2>Crear Tabla</h2>
-        <form id="createTableForm" method="POST" action="#">
+        <form id="createTableForm" method="POST" action="Crear_Tablas.php">
             <div class="mb-3">
                 <label for="tableName" class="form-label">Nombre:</label>
                 <input type="text" class="form-control" id="tableName" name="nombre" required>
@@ -32,21 +32,40 @@ $conexion = $db->conectar();
 </body>
 </html>
 <?php
-    if (isset($_POST['enviar'])){
-        $nombre = $_POST['nombre'];
-        $create = "CREATE TABLE $nombre (
-            ID INT PRIMARY KEY AUTOINCREMENT,
-            Nombre varchar(25),
-            Cantidad int,
-            Valor int,
-            Ubicacion varchar(30),
-            Fecha date,
-            Marca varchar(25),
-            Codigo int,
-            Descripcion varchar(255),
-            Proveedor varchar(30)
-        );";
+if (isset($_POST['enviar'])) {
+    $nombre = $_POST['nombre'];
+
+    // Escapar el nombre de la tabla para evitar inyecciones SQL
+    $nombre = preg_replace('/[^a-zA-Z0-9_]/', '', $nombre);
+
+    // Suponiendo que estás utilizando MySQL
+    $create = "CREATE TABLE `$nombre` (
+        ID INT AUTO_INCREMENT PRIMARY KEY,
+        Nombre VARCHAR(25),
+        Cantidad INT,
+        Valor INT,
+        Ubicacion VARCHAR(30),
+        Fecha DATE,
+        Marca VARCHAR(25),
+        Codigo INT,
+        Descripcion VARCHAR(255),
+        Proveedor VARCHAR(30)
+    );";
+
+    try {
+        // Asumiendo que $conexion es una instancia válida de PDO
+        $stmt = $conexion->prepare($create);
+        $stmt->execute();
+        if($stmt){
+            echo "<script>alert('Tabla creada con éxito.');
+            </script>";
+            header('Location:../View/P.php');
+        }else{
+            echo "Error al crear la tabla: " . $e->getMessage();
+            header('Location:../View/P.php');
+        }
+    } catch (PDOException $e) {
+        echo "Error al crear la tabla: " . $e->getMessage();
     }
-
-
+}
 ?>
