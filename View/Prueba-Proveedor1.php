@@ -39,7 +39,7 @@
                         <a class="nav-link" href="../View/index.php">Inicio <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="productos-solicitados" href="#">Productos solicitados</a>
+                        <a class="nav-link" id="productos-solicitados">Productos solicitados</a>
                     </li>
                     <label class="nav-item">
                         <a class="nav-link" href="#" id="contactar-tienda" data-toggle="modal" data-target="#modalContacto">Contactar Tienda</a>
@@ -77,7 +77,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h1 style="color: #fcfcfc; font-size: 80px;"class="text-center">Productos Electrónicos</h1>
+                
                 </div>
             </div>
             <div class="row">

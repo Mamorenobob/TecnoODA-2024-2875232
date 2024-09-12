@@ -24,18 +24,11 @@
     <link rel="stylesheet" href="../Model/Css/D-Style.css">
 </head>
 <body>
-        <li class="nav-item active">
-                <a class="nav-link" href="../View/cerrar_sesion.php">Cerrar Sesion</a>
-        </li>
-    <header>
-        <nav>
-            <ul>
-                <label><a href="#">EMPRESA 1</a></label>
-                <label><a href="#">EMPRESA 2</a></label>
-                <label><a href="#">EMPRESA 3</a></label>
-                <label><a href="#">EMPRESA 4</a></label>
-            </ul>
-        </nav>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <label class="nav-item active">
+                        <a class="nav-link" href="../View/cerrar_sesion.php">Cerrar Sersion</a>
+                    </label>
     </header>
     <main>
         <section id="EMPRESA 1">
@@ -63,18 +56,39 @@
         <div class="cart-button-container">
           <img src="../Images/car.png" alt="Imagen del carrito de envío" class="button" id="cart-button">
         </div>
-      </footer>
-        <form id="request-form" style="display: none; text-align: center; color: #000;">
-            <h2>Solicitar productos</h2>
-            <label for="product-name">Nombre del producto:</label>
-            <input type="text" id="product-name" name="product-name"><br><br>
-            <label for="quantity">Cantidad:</label>
-            <input type="number" id="quantity" name="quantity"><br><br>
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email"><br><br>
-            <input type="submit" value="Enviar solicitud">
-        </form>
-    </footer>
+<footer>
+    <form id="request-form" action="procesar_formulario2.php" method="POST" style="display: block; text-align: center; color: #000;">
+        <h2>Solicitar productos</h2>
+        <div class="form-group">
+            <label for="empresa">Empresa:</label>
+            <select id="empresa" name="empresa">
+                <option value="">Seleccione una empresa</option>
+                <option value="Empresa 1">Empresa 1</option>
+                <option value="Empresa 2">Empresa 2</option>
+                <option value="Empresa 3">Empresa 3</option>
+                <option value="Empresa 4">Empresa 4</option>
+            </select><br><br>
+            <label for="Nombre">Nombre del producto:</label>
+            <input type="text" id="productName" name="productName"><br><br>
+            <label for="marca">Marca del producto:</label>
+            <input type="text" id="marca" name="marca"><br><br>
+            <label for="codigo">Codigo:</label>
+            <input type="number" id="codigo" name="codigo"><br><br>
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad"><br><br>
+            <label for="valor">Valor:</label>
+            <input type="number" id="valor" name="valor"><br><br>
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha"><br><br>
+            <label for="descripcion">Descripcion:</label>
+            <input type="text" id="descripcion" name="descripcion"><br><br>
+            <label for="proveedor">Proveedor:</label>
+            <input type="text" id="proveedor" name="proveedor"><br><br>
+            <button type="submit" id="submitBtn" name="enviar">Enviar</button>
+            <script src="Solicitudes.js"></script>
+        </div>
+    </form>
+</footer>
     <script>
         document.getElementById("cart-button").addEventListener("click", function() {
             document.getElementById("request-form").style.display = "block";
