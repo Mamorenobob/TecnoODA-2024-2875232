@@ -63,13 +63,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $mail->addAddress($verificarCorreo);
                     $mail->isHTML(true);
                     $mail->Subject = 'Recuperación de contraseña';
-                    $mail->Body    = '<div style=" background-color: #1a46be; padding: 20px; border-radius: 10px; max-width: 400px; width: 100%; text-align: center;">
-                    <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">Tecno O.D.A</div>
-                    <p>Este es el correo para la solicitud que pediste para cambiar tu contraseña:</p>
-                    <div style="color: #66c0f4; font-size: 24px; font-weight: bold; margin-top: 10px;"> <a href="http://localhost/TecnoODA/View/CambioDeContraseña.php?id=' . $userId . '">Recuperación de contraseña</a></div>
-                    div style="  margin-top: 20px; text-align: left;">
-                    <p><strong>Si no has sido tú</strong></p> <p>Te enviamos este correo electrónico porque alguien ha intentado iniciar sesión en tu cuenta de Tecno O.D.A.</p>
+                    $mail->Body    = '<center><div style="text-align:center;"><div style=" background-color: #17202a; padding: 20px; border-radius: 10px; max-width: 400px; width: 8000px; text-align: center;">
+                    <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px; color:white;">Tecno O.D.A</div>
+                    <p style="color:white;">Este es el correo para la solicitud que pediste para cambiar tu contraseña:</p>
+                    <div style=" background-color: #566573; font-size: 24px; font-weight: bold; margin-top: 10px;"> <a href="http://localhost/TecnoODA/View/CambioDeContraseña.php?id=' . $userId . '">Recuperación de contraseña</a></div>
+                    <div style="margin-top: 20px; text-align: left;">
                     </div>
+
+                    </div>
+                    </center>
                    ';
                 
                     // Enviar el correo

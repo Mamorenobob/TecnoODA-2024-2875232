@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Model/Css/Todo.css">
     <title>Document</title>
-    </style>
+<style>
+    .contenedor1{
+max-width: 100%;
+height: 717px;
+background-color: #aed6f1;
+}
+</style>
 </head>
 <body>
     <div class="contenedor1">
         <div class="contenedorTabla1">
             <div class="texto">
-                Hola
             </div>
         </div>
         <div class="contenedorTabla2">
