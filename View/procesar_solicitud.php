@@ -1,36 +1,57 @@
 <?php
-require '../Controller/conexion.php'; // Ajusta la ruta según la ubicación de tu archivo
+require '../Controller/conexion.php';
 $db = new Database();
 $conexion = $db->conectar();
 
-// Verificar que se ha enviado un ID y acción
-if (!isset($_POST['id']) || !isset($_POST['accion'])) {
-    echo json_encode(['success' => false, 'message' => 'ID o acción no definidos']);
-    exit();
-}
+$response = ['success' => false];
 
-$id = intval($_POST['id']);
-$accion = $_POST['accion']; // "aprobar" o "rechazar"
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $accion = $_POST['accion'];
+    $id = $_POST['id'];
 
-// Establecer el estado basado en la acción
-if ($accion == 'aprobar') {
-    $estado = 1; // Activado
-} elseif ($accion == 'rechazar') {
-    $estado = 0; // Desactivado
-} else {
-    echo json_encode(['success' => false, 'message' => 'Acción no válida']);
-    exit();
-}
+    if ($accion == 'aprobar') {
+        // Obtener los detalles de la solicitud
+        $sql = "SELECT * FROM solicitudes WHERE ID = ?";
+        $stmt = $conexion->prepare($sql);
+        $stmt->execute([$id]);
+        $solicitud = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Preparar la consulta SQL
-$sql = "UPDATE solicitudes SET estado = :estado WHERE ID = :id";
-$stmt = $conexion->prepare($sql);
+        if ($solicitud) {
+            $sql = "INSERT INTO pedido (Nombre, Cantidad, Proveedor, Valor, Ubicacion, Fecha, Marca, Codigo, Descripcion) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $conexion->prepare($sql);
+            $resultado = $stmt->execute([
+                $solicitud['Nombre'],
+                $solicitud['Cantidad'],
+                $solicitud['Proveedor'],
+                $solicitud['Valor'],
+                $solicitud['Ubicacion'],
+                $solicitud['Fecha'],
+                $solicitud['Marca'],
+                $solicitud['Codigo'],
+                $solicitud['Descripcion']
+            ]);
 
-// Ejecutar la consulta
-try {
-    $stmt->execute([':estado' => $estado, ':id' => $id]);
-    echo json_encode(['success' => true]);
-} catch (PDOException $e) {
-    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+            if ($resultado) {
+                // Eliminar de la tabla solicitudes después de aprobar
+                $sql = "DELETE FROM solicitudes WHERE ID = ?";
+                $stmt = $conexion->prepare($sql);
+                $stmt->execute([$id]);
+
+                $response['success'] = true;
+            }
+        }
+    } elseif ($accion == 'rechazar') {
+        // Eliminar de la tabla solicitudes
+        $sql = "DELETE FROM solicitudes WHERE ID = ?";
+        $stmt = $conexion->prepare($sql);
+        $resultado = $stmt->execute([$id]);
+
+        if ($resultado) {
+            $response['success'] = true;
+        }
+    }
+
+    echo json_encode($response);
 }
 ?>
