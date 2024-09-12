@@ -15,7 +15,7 @@
                 header("Location: ../View/Prueba-Proveedor1.php");
                 break;
             case 9:
-                header("Location: ../View/PaginaPrincipal.php");
+                header("Location: ../View/P.php");
                 break;
             default:
                 // Si el cargo no coincide con ninguno de los casos, redirigir a una página predeterminada
