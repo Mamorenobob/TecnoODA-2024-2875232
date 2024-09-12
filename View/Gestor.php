@@ -31,7 +31,7 @@
         <ul class="nav-list" id="nav-list">
             <li><a href="#" data-file="MostrarTablas.php">Tablas</a></li>
             <li><a href="#" data-file="Solicitudes.php">Solicitar Productos</a></li>
-            <li><a href="#" data-file="mostrar.solicitudes.php">Solicitudes</a></li>
+            <li><a href="#" data-file="mostrar_solicitudes.php">Solicitudes</a></li>
             <li><a href="#">Contactos Proveedor</a></li>
         </ul>
         <li><a href="../View/cerrar_sesion.php">Cerrar sesión</a></li>

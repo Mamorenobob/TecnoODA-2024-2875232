@@ -21,8 +21,7 @@
 		<meta charset="UTF-8" />
 		
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-		<link rel="Stylesheet" href="../Model/Css/Fondo1.css">
+
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
@@ -31,7 +30,6 @@
 		<title>Tecno ODA</title>
 		<link rel="icon" href="logo.png">
 		<link rel="stylesheet" href="../Model/Css/CSS_Admin.css" />
-        <script src="../Model/JavaScript/Admin.js"></script>
 	</head>
 	<body>
 		<header>
@@ -65,8 +63,8 @@
 				<nav class="navbar container">
 					<i class="fa-solid fa-bars"></i>
 					<ul class="menu">
-                        <li><a href="#" data-file="MostrarTablas.php">Tablas</a></li>
-                        <li><a href="#" data-file="Solicitudes.php">Solicitar Productos</a></li>
+                        <li><a href="#" data-file="../View/Crear_Tablas.php">Tablas</a></li>
+                        <li><a href="../View/enviar_productos.php" >Revisar Productos Solicitados</a></li>
                         <li><a href="#" data-file="mostrar.solicitudes.php">Solicitudes</a></li>
                         <li><a href="#">Contactos Proveedor</a></li>
 					</ul>
@@ -81,8 +79,8 @@
 			</div>
 		</header>
 
-<section class="container container-features">
-        <!-- Otros contenidos -->
+<section class="container-features">
+        <br><br><br><br><br><br><!-- Otros contenidos -->
 
         <!-- Contenedor para mostrar la información cargada -->
         <div id="contenedor_info"></div>
@@ -129,5 +127,6 @@
 			src="https://kit.fontawesome.com/81581fb069.js"
 			crossorigin="anonymous"
 		></script>
+		<script src="../Model/JavaScript/Admin.js"></script>
 	</body>
 </html>

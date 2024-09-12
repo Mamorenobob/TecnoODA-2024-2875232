@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-09-2024 a las 23:57:24
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 12-09-2024 a las 21:04:18
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -74,6 +74,25 @@ INSERT INTO `documento` (`ID`, `documento`) VALUES
 (9, 'Cedula de Extranjeria'),
 (10, 'Pasaporte'),
 (11, 'NIUP');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pedido`
+--
+
+CREATE TABLE `pedido` (
+  `ID` int(11) NOT NULL,
+  `Nombre` varchar(25) DEFAULT NULL,
+  `Cantidad` int(11) DEFAULT NULL,
+  `Valor` int(11) DEFAULT NULL,
+  `Ubicacion` varchar(30) DEFAULT NULL,
+  `Fecha` date DEFAULT NULL,
+  `Marca` varchar(25) DEFAULT NULL,
+  `Codigo` int(11) DEFAULT NULL,
+  `Descripcion` varchar(255) DEFAULT NULL,
+  `Proveedor` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -190,6 +209,12 @@ ALTER TABLE `documento`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indices de la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -230,6 +255,12 @@ ALTER TABLE `categoria`
 --
 ALTER TABLE `documento`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`

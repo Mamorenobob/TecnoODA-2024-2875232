@@ -15,7 +15,7 @@ $solicitudes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitudes</title>
-    <link rel="stylesheet" href="../Model/Css/Solicitud.css"> <!-- Ajusta la ruta si es necesario -->
+    <link rel="stylesheet" href="../Model/Css/Solicitudes.css"> <!-- Ajusta la ruta si es necesario -->
     <style>
         body {
             font-family: Arial, sans-serif;

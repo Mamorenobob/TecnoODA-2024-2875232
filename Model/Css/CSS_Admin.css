@@ -870,6 +870,10 @@ table {
 	opacity: 0.8; /* Ajusta la opacidad si quieres que sea más tenue */
 }
 
+.container-features {
+    padding: 20px; /* Ajusta el valor según sea necesario */
+    margin-top: 50px; /* Espacio superior para separar el contenido del encabezado */
+}
 
 
 
