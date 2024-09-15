@@ -31,9 +31,10 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Tecno ODA</title>
+		<title>Envio de Productos</title>
 		<link rel="icon" href="logo.png">
 		<link rel="stylesheet" href="../Model/Css/CSS_Admin.css"/>
+        <link rel="icon" href="../Images/logo.png" type="image/png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
@@ -77,25 +78,23 @@
 		</header>
 
 <section class="container-features">
-        <h1 style='text-align:center;'>Solicitudes</h1>
+        <h1 style='text-align:center; font-size:25px; left:750px; position:relative;'>Solicitudes</h1>
         <br><br><br><br><br><br>
         
-    <table style='text-align:center; top:200px;'>
-        <thead>
+        <table style='text-align:center; top:50px; left:-230px; position:relative;'>
             <tr>
-                <th style='text-align:center;'>Nombre</th>
-                <th style='text-align:center;'>Cantidad</th>
-                <th style='text-align:center;'>Proveedor</th>
-                <th style='text-align:center;'>Valor</th>
-                <th style='text-align:center;'>Ubicación</th>
-                <th style='text-align:center;'>Fecha</th>
-                <th style='text-align:center;'>Marca</th>
-                <th style='text-align:center;'>Código</th>
-                <th style='text-align:center;'>Descripción</th>
-                <th style='text-align:center;'>Aprobar</th>
-                <th style='text-align:center;'>Rechazar</th>
+                <th style='text-align:center; padding:2px'>Nombre</th>
+                <th style='text-align:center; padding:2px'>Cantidad</th>
+                <th style='text-align:center; padding:2px'>Proveedor</th>
+                <th style='text-align:center; padding:2px'>Valor</th>
+                <th style='text-align:center; padding:2px'>Ubicación</th>
+                <th style='text-align:center; padding:2px'>Fecha</th>
+                <th style='text-align:center; padding:2px'>Marca</th>
+                <th style='text-align:center; padding:2px'>Código</th>
+                <th style='text-align:center; padding:2px'>Descripción</th>
+                <th style='text-align:center; padding:2px'>Aprobar</th>
+                <th style='text-align:center; padding:2px'>Rechazar</th>
             </tr>
-        </thead>
         <tbody>
             <?php if (empty($solicitudes)) { ?>
                 <tr>
@@ -126,45 +125,6 @@
         </tbody>
     </table>
         <div id="contenedor_info"></div>
-</section>
-        <nav>
-
-		<section class="banner">
-			<div class="content-banner">
-			</div>
-		</section>
-
-		<main class="main-content">
-			<section class="container container-features">
-				<div class="social-icons">
-                    <span class="instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                    </span>
-					<div class="social-icons">
-					</div>
-				</div>
-				<div class="social-icons">
-                    <span class="twitter">
-                    <i class="fa-brands fa-twitter"></i>
-                    </span>
-					<div class="social-icons">
-					</div>
-				</div>
-				<div class="social-icons">
-                    <span class="facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                    </span>
-					<div class="social-icons">
-					</div>
-				</div>
-				<div class="social-icons">
-                    <span class="facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                    </span>
-					<div class="social-icons">
-					</div>
-				</div>
-			</section>
 		<script
 			src="https://kit.fontawesome.com/81581fb069.js"
 			crossorigin="anonymous"
@@ -173,48 +133,59 @@
 	</body>
 </html>
 <script>
-function aprobar(id) {
-    fetch('../View/procesar_solicitud.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams({
-            id: id,
-            accion: 'aprobar'
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            document.querySelector(`tr[data-id="${id}"]`).style.backgroundColor = 'green';
-        } else {
-            console.error('Error:', data.message);
+    function confirmarAprobar(id) {
+        if (confirm("¿Está seguro de que desea aprobar esta solicitud?")) {
+            aprobar(id);
         }
-    })
-    .catch(error => console.error('Error:', error));
-}
+    }
 
-function rechazar(id) {
-    fetch('../View/procesar_solicitud.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams({
-            id: id,
-            accion: 'rechazar'
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            document.querySelector(`tr[data-id="${id}"]`).remove();
-        } else {
-            console.error('Error:', data.message);
+    function confirmarRechazar(id) {
+        if (confirm("¿Está seguro de que desea rechazar esta solicitud?")) {
+            rechazar(id);
         }
-    })
-    .catch(error => console.error('Error:', error));
-}
+    }
 
-</script>
+    function aprobar(id) {
+        fetch('../View/procesar_solicitud.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                id: id,
+                accion: 'aprobar'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.querySelector(`tr[data-id="${id}"]`).style.backgroundColor = 'green';
+            } else {
+                console.error('Error:', data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function rechazar(id) {
+        fetch('../View/procesar_solicitud.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                id: id,
+                accion: 'rechazar'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.querySelector(`tr[data-id="${id}"]`).remove();
+            } else {
+                console.error('Error:', data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    </script>

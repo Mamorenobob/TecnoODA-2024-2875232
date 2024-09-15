@@ -1,5 +1,16 @@
 <?php
-require '../Controller/conexion.php'; // Ajusta la ruta según la ubicación de tu archivo
+session_start();
+require '../View/cortina.php';
+require '../Controller/conexion.php';
+require '../View/Header1.php';
+// Verificar si el usuario no está autenticado
+if (!isset($_SESSION['Usuario']) || ($_SESSION['Cargo'] != 2)) {
+    echo "<script>
+            alert('No puedes acceder aquí. Debes iniciar sesión.');
+            window.location = 'index.php';
+          </script>";
+    exit();
+}
 $db = new Database();
 $conexion = $db->conectar();
 
@@ -13,9 +24,13 @@ $solicitudes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="../Images/logo.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+			src="https://kit.fontawesome.com/81581fb069.js"
+			crossorigin="anonymous"
+		></script>
     <title>Solicitudes</title>
-    <link rel="stylesheet" href="../Model/Css/Solicitudes.css"> <!-- Ajusta la ruta si es necesario -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +55,18 @@ $solicitudes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </style>
 </head>
 <body>
+<nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li><a href="">Solicitudes</a></li>
+            <li><a href="../View/Gestor.php">Regresar al Inicio</a></li>
+
+        </ul>
+    </nav>
     <h1>Solicitudes</h1>
     <table>
         <thead>
@@ -79,3 +106,6 @@ $solicitudes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </table>
 </body>
 </html>
+<?php
+ require '../View/Footer.php';
+ ?>

@@ -25,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
         if ($resultado) {
             // Redirigir a paginata.php en caso de éxito
-            header("Location: ../View/paginata.php?mensaje=success");
+            header("Location: ../View/Inventario.php?mensaje=sucess");
             exit(); // Asegúrate de usar exit() después de header()
         } else {
             // Redirigir a paginata.php en caso de error
-            header("Location: ../View/paginata.php?mensaje=error");
+            header("Location:  ../View/Inventario.php?mensaje=error");
             exit(); // Asegúrate de usar exit() después de header()
         }
     }
@@ -55,11 +55,11 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'Actualizar Producto') {
 
     if ($resultado) {
         // Redirigir a paginata.php en caso de éxito
-        header("Location: ../View/paginata.php?mensaje=actualizado");
+        header("Location: ../View/Inventario.php?mensaje=sucess");
         exit(); // Asegúrate de usar exit() después de header()
     } else {
         // Redirigir a paginata.php en caso de error
-        header("Location: ../View/paginata.php?mensaje=error_actualizar");
+        header("Location:  ../View/Inventario.php?mensaje=error");
         exit(); // Asegúrate de usar exit() después de header()
     }
 }
@@ -75,11 +75,11 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'Actualizar Producto') {
     
         if ($resultado) {
             // Redirigir a paginata.php en caso de éxito
-            header("Location: ../View/paginata.php?mensaje=eliminado");
+            header("Location: ../View/Inventario.php?mensaje=sucess");
             exit(); // Asegúrate de usar exit() después de header()
         } else {
             // Redirigir a paginata.php en caso de error
-            header("Location: ../View/paginata.php?mensaje=error_eliminar");
+            header("Location:  ../View/Inventario.php?mensaje=error");
             exit(); // Asegúrate de usar exit() después de header()
         }
     }

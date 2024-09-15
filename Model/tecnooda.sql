@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-09-2024 a las 21:04:18
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 15-09-2024 a las 06:11:43
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -78,6 +78,79 @@ INSERT INTO `documento` (`ID`, `documento`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `enviado`
+--
+
+CREATE TABLE `enviado` (
+  `ID` int(11) NOT NULL,
+  `Nombre` varchar(25) DEFAULT NULL,
+  `Cantidad` int(11) DEFAULT NULL,
+  `Valor` int(11) DEFAULT NULL,
+  `Ubicacion` varchar(30) DEFAULT NULL,
+  `Fecha` date DEFAULT NULL,
+  `Marca` varchar(25) DEFAULT NULL,
+  `Codigo` int(11) DEFAULT NULL,
+  `Descripcion` varchar(255) DEFAULT NULL,
+  `Proveedor` varchar(30) DEFAULT NULL,
+  `estado_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estado`
+--
+
+CREATE TABLE `estado` (
+  `id` int(11) NOT NULL,
+  `descripcion` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`id`, `descripcion`) VALUES
+(1, 'Aprobado'),
+(2, 'Rechazado');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `historial`
+--
+
+CREATE TABLE `historial` (
+  `ID` int(11) NOT NULL,
+  `Nombre` varchar(25) DEFAULT NULL,
+  `Cantidad` int(11) DEFAULT NULL,
+  `Valor` int(11) DEFAULT NULL,
+  `Ubicacion` varchar(30) DEFAULT NULL,
+  `Fecha` date DEFAULT NULL,
+  `Marca` varchar(25) DEFAULT NULL,
+  `Codigo` int(11) DEFAULT NULL,
+  `Descripcion` varchar(255) DEFAULT NULL,
+  `Proveedor` varchar(30) DEFAULT NULL,
+  `estado_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `historial`
+--
+
+INSERT INTO `historial` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fecha`, `Marca`, `Codigo`, `Descripcion`, `Proveedor`, `estado_id`) VALUES
+(1, 'Johan', 555, 44444, '44', '0004-04-04', '4', 44, '4', '4', 1),
+(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(5, '11', 1, 1, '1', '0111-01-01', '1', 1, '1', '1', 2),
+(6, 'hola', 1000, 15151, NULL, '5555-05-05', 'sasas', 1114, 'sasasa', 'hola', 1),
+(7, 'Mayonesa', 30, 60000, 'Calle #46 16', '2024-09-15', 'Pollito', 0, 'Sabrosa mayonesa', 'Unilevel', 2),
+(8, 'Mouse', 30000, 1300000, 'Calle 9 # 26 16', '2006-10-17', 'Sampicolino', 36, 'Un mouse delicoso', 'Katronix', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `pedido`
 --
 
@@ -91,8 +164,20 @@ CREATE TABLE `pedido` (
   `Marca` varchar(25) DEFAULT NULL,
   `Codigo` int(11) DEFAULT NULL,
   `Descripcion` varchar(255) DEFAULT NULL,
-  `Proveedor` varchar(30) DEFAULT NULL
+  `Proveedor` varchar(30) DEFAULT NULL,
+  `estado` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pedido`
+--
+
+INSERT INTO `pedido` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fecha`, `Marca`, `Codigo`, `Descripcion`, `Proveedor`, `estado`) VALUES
+(21, 'Tablet', 1, 22222, 'Bogota', '1111-11-11', '1', 1, '1', '1', 'aceptado'),
+(22, 'Mauro', 12, 50000, 'Bogota', '2024-09-14', 'Lenovo', 1000001110, 'Pc de buen estado', 'Juan', ''),
+(23, 'Johan', 555, 44444, '44', '0004-04-04', '4', 44, '4', '4', ''),
+(24, 'hola', 1000, 15151, NULL, '5555-05-05', 'sasas', 1114, 'sasasa', 'hola', ''),
+(25, 'Mouse', 30000, 1300000, 'Calle 9 # 26 16', '2006-10-17', 'Sampicolino', 36, 'Un mouse delicoso', 'Katronix', 'aceptado');
 
 -- --------------------------------------------------------
 
@@ -118,7 +203,6 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fecha`, `Marca`, `Codigo`, `Descripcion`, `Proveedor`) VALUES
-(6, 'Computador', 1, 10000, 'Bogota D.C.', '2024-08-14', 'Asus', 101, 'Pc en buen estado y totalmente funcional', 'Josue'),
 (9, 'Tablet', 5, 450000, 'Bogota', '2024-08-17', 'Asus', 1000001, 'Se encuentran en un bien estado y estas listas para la venta', 'Jusepe'),
 (10, 'Tablet', 5, 450000, 'Bogota', '2024-08-17', 'Asus', 1000001, 'Se encuentran en un bien estado y estas listas para la venta', 'Jusepe');
 
@@ -131,7 +215,7 @@ INSERT INTO `productos` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fech
 CREATE TABLE `registro` (
   `ID` int(11) NOT NULL,
   `Cargo` int(11) DEFAULT NULL,
-  `Usuario` varchar(15) DEFAULT NULL,
+  `Usuario` varchar(255) DEFAULT NULL,
   `P_Nombre` varchar(20) DEFAULT NULL,
   `P_Apellido` varchar(20) DEFAULT NULL,
   `Tipo_Doc` int(11) DEFAULT NULL,
@@ -157,7 +241,8 @@ INSERT INTO `registro` (`ID`, `Cargo`, `Usuario`, `P_Nombre`, `P_Apellido`, `Tip
 (9, 1, 'Tecno', 'a', 'a', 7, NULL, 'TecnoODA@outlook.com', '121', '123', NULL, NULL, 1),
 (10, 2, 'Demond', 'Ale', 'Mor', 7, '1456788410', 'mamoreno.bob@gmail.com', '321459782', '123456789', NULL, NULL, 0),
 (11, 8, 'ZDELMAXZ', 'Cris', 'Pam', 8, '156456165', 'camilo.milo177@gmail.com', '3215616', '123', NULL, NULL, 0),
-(12, 9, 'Pes', 'Pepe', 'Pasa', 7, '1561561', 'pepito@gmail.com', '321654987', '1', NULL, NULL, NULL);
+(12, 9, 'Pes', 'Pepe', 'Pasa', 7, '1561561', 'pepito@gmail.com', '321654987', '1', NULL, NULL, NULL),
+(13, 2, 'Ramona_CasaLimpia', 'Ramona', 'Sanchez', 9, '553319160', 'RamonaCasaLimpia_VivaColombia@', '3212995560', 'Ramona123', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -177,14 +262,6 @@ CREATE TABLE `solicitudes` (
   `Descripcion` varchar(255) DEFAULT NULL,
   `Proveedor` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `solicitudes`
---
-
-INSERT INTO `solicitudes` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fecha`, `Marca`, `Codigo`, `Descripcion`, `Proveedor`) VALUES
-(1, 'Movil', 5, 250000, 'Bogota', '2024-09-04', 'Lenovo', 1, 'holaaaaaaaaaa', 'Ricardo'),
-(2, 'Tablet', 1, 22222, 'Bogota', '1111-11-11', '1', 1, '1', '1');
 
 --
 -- Índices para tablas volcadas
@@ -207,6 +284,26 @@ ALTER TABLE `categoria`
 --
 ALTER TABLE `documento`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `enviado`
+--
+ALTER TABLE `enviado`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `estado_id` (`estado_id`);
+
+--
+-- Indices de la tabla `estado`
+--
+ALTER TABLE `estado`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `fk_estado` (`estado_id`);
 
 --
 -- Indices de la tabla `pedido`
@@ -257,10 +354,28 @@ ALTER TABLE `documento`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT de la tabla `enviado`
+--
+ALTER TABLE `enviado`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `estado`
+--
+ALTER TABLE `estado`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `historial`
+--
+ALTER TABLE `historial`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -272,17 +387,29 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitudes`
 --
 ALTER TABLE `solicitudes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `enviado`
+--
+ALTER TABLE `enviado`
+  ADD CONSTRAINT `estado_id` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`id`);
+
+--
+-- Filtros para la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD CONSTRAINT `fk_estado` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`id`);
 
 --
 -- Filtros para la tabla `registro`

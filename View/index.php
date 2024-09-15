@@ -6,6 +6,7 @@
     <title>Página de Inicio</title>
     <link rel="stylesheet" href="../Model/Css/Style2.css">
     <link rel="stylesheet" href="../Model/Css/index.css">
+    <link rel="icon" href="../Images/logo.png" type="image/png">
     <script src="../Model/JavaScript/index.js"></script>
     <style>
             header{

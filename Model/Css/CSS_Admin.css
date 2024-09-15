@@ -204,9 +204,7 @@ html {
 .banner {
 	margin: 0;
 	padding: 0;
-	height: 185vh;
 	background: linear-gradient(to bottom, #8909d6, #260062);
-	background-size: 100% 200%;
 	animation: wave 5s infinite alternate;
 }
 

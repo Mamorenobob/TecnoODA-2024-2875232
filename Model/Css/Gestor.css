@@ -1,77 +1,164 @@
-body{
-    background: linear-gradient(#fff, #4c00ff,#260062);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
+
+        header {
+    background-color: #4B0082; /* Fondo púrpura profundo */
 }
-nav {
+
+.container-hero {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem;
-    background-color: #333;
+    justify-content: center;
 }
 
-.menu-toggle {
+.container.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.customer-support, .container-logo, .container-user {
+    display: flex;
+    align-items: center;
+}
+
+.customer-support i, .container-user i {
+    font-size: 24px;
+    color: white;
+    margin-right: 10px;
+}
+
+.content-customer-support .text, .content-customer-support .number {
     display: block;
-    cursor: pointer;
-    margin-bottom: 1rem;
+    color: white;
 }
 
-.menu-toggle .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 5px 0;
+.container-logo .logo a {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
 }
 
-.nav-list {
+.container-user .menu {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: none; /* Inicialmente oculto */
-    flex-direction: column;
-    width: 100%;
 }
 
-.nav-list.active {
-    display: flex; /* Muestra el menú cuando tiene la clase active */
+.container-user .menu li {
+    display: inline;
 }
 
-.nav-list li,
-.nav-list button {
-    margin: 0;
-    padding: 0.5rem 1rem;
-}
-
-.nav-list a,
-.nav-list ul{
-    color: #fff;
+.container-user .menu li a {
+    color: white;
     text-decoration: none;
-    font-size: 1rem;
+    margin-left: 10px;
+}
+.container-user .menu li a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    position: relative;
+}
+
+.container-user .menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
     display: block;
+    margin-top: 5px;
+    right: 0;
+    background: blue;
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
 }
 
-.nav-list a:hover {
-    background-color: #555;
+.container-user .menu li a:hover::after {
+    width: 100%;
+    left: 0;
+    background: blue;
 }
 
-/* Estilos para el menú en pantallas grandes (si se desea) */
-@media (min-width: 769px) {
+.container-user .menu li a:hover {
+    color: blue;
+}
+nav {
+    background-color: #2E0854; /* Fondo púrpura más oscuro */
+    padding: 10px 0;
+}
+
+.menu-toggle {
+    display: none; /* Ocultar el toggle en pantallas grandes */
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    margin: 0 15px;
+}
+
+.nav-list li a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+}
+
+
+.nav-list li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: blue;
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+}
+
+.nav-list li a:hover::after {
+    width: 100%;
+    left: 0;
+    background: blue;
+}
+
+.nav-list li a:hover {
+    color: blue;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
     .menu-toggle {
-        display: none; /* Oculta el ícono de hamburguesa en pantallas grandes */
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: white;
     }
 
     .nav-list {
-        display: flex; /* Muestra el menú en pantallas grandes */
-        flex-direction: row;
-        position: static;
-        width: auto;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-list.active {
+        display: flex;
     }
 
     .nav-list li {
-        margin: 0 1rem;
+        margin: 10px 0;
     }
 }

@@ -1,7 +1,23 @@
 <?php
-    require '../Controller/conexion.php';
-    $db = new Database();
-    $conexion = $db->conectar();
+    session_start();
+  
+      require '../View/cortina.php';
+      require '../Controller/conexion.php';
+      require '../View/Header1.php';
+      $db = new Database();
+      $conexion = $db->conectar();
+  
+      // Verificar si el usuario no está autenticado
+      if (!isset($_SESSION['Usuario']) || ($_SESSION['Cargo'] != 9) ) {
+        if (!isset($_SESSION['Usuario']) || ($_SESSION['Cargo'] != 2)){
+            echo "<script>
+            alert('No puedes acceder aquí. Debes iniciar sesión.');
+            window.location = 'index.php';
+          </script>";
+
+        exit();
+        }
+      }
     if (isset($_GET['mensaje'])) {
         if ($_GET['mensaje'] == 'success') {
             echo "<script>alert('Producto agregado exitosamente');</script>";
@@ -9,7 +25,21 @@
             echo "<script>alert('Error al agregar el producto');</script>";
         }
     }
-    
+    $url = '../View/Inventario.php'; // Valor por defecto
+
+// Verifica el valor de $_SESSION['Cargo'] y ajusta la URL según corresponda
+switch ($_SESSION['Cargo']) {
+    case 2:
+        $url = '../View/Gestor.php';
+        break;
+    case 9:
+        $url = '../View/P.php';
+        break;
+    // Agrega más casos si es necesario
+    default:
+        $url = '../View/index.php'; // URL por defecto si no hay coincidencia
+        break;
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +47,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="../Images/logo.png" type="image/png">
+    <link rel="stylesheet" href="../Model/Css/CSS_Admin.css" />
+    <script
+			src="https://kit.fontawesome.com/81581fb069.js"
+			crossorigin="anonymous"
+		></script>
+    <title>Inventario</title>
     <style>
         #formContainer {
             position: relative;
@@ -174,10 +210,22 @@
             top: 1200px;   /* Mueve el div 10px hacia abajo */
             right: 800px;  /* Mueve el div 20px hacia la derecha */
         }
+        .toggleButton{
+            position: relative;
+            left: 850px;
+        }
    
     </style>
 </head>
 <body>
+<nav class="navbar container">
+					<i class="fa-solid fa-bars"></i>
+					<ul class="menu">
+                       <li><a href="">Inventario</a></li>
+                        <li><a href="<?php echo $url; ?>">Regresar al Inicio</a></li>
+                        
+					</ul>
+				</nav>
 
     <!-- Recuadros de información debajo de la imagen -->
 <div class="message-1">
@@ -198,7 +246,7 @@
 </div>
 
 
-<table class="table table-bordered">
+<table style="text-align:center;position:absolute;left:250px;top:200px;">
     <thead class="thead-dark">
         <tr>	
             <th>ID</th>
@@ -261,17 +309,7 @@
     ?>
     </tbody>
 </table>
-
-    
-    <button href="../TecnoODA/View/index.php" type="button" class="btn btn-outline-light" id="backButton" onclick="window.location.href='paginaInicio.php';">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
-            <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
-        </svg>
-        Volver
-    </button>
-    
-    <button id="toggleButton">Mostrar Formulario</button>
+    <button id="toggleButton" class="toggleButton">Mostrar Formulario</button>
 
     <!-- Formulario para agregar productos -->
     <center>

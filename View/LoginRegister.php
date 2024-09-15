@@ -53,6 +53,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Images/logo.png" type="image/png">
     <title>Login-Register</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -218,8 +219,8 @@
                     <input type="text"  name="Usuario" placeholder="Usuario/Correo Electronico" required>
                     <div class="pw">
                        <input type="password" name="contrasenia" id="contrasena" placeholder="Contraseña" required autocomplete="off">
-                       <img id="imagenOjo1" src="../Images/OjoCerrado.jpeg" height="10%" width="5%" 
-                        style="position: absolute; top: 59%; right: 10px; transform: translateY(-50%); cursor: pointer;"
+                       <img id="imagenOjo1" src="../Images/OjoCerrado.jpeg" height="8%" width="5%" 
+                        style="position: absolute; top: 56%; right: 10px; transform: translateY(-50%); cursor: pointer;"
                         onmousedown="mostrarContrasena()" 
                         onmouseup="ocultarContrasena()">
                     </div>
@@ -248,7 +249,7 @@
                     <input type="number" name="Tel" placeholder="Teléfono" required>
                     <div class="pw">
                        <input type="password" name="pw" id="contrasena1" placeholder="Contraseña" required autocomplete="off">
-                       <img id="imagenOjo" src="../Images/OjoCerrado.jpeg" height="40px" width="5px" 
+                       <img id="imagenOjo" src="../Images/OjoCerrado.jpeg" height="8%" width="5%"
                         style="position: absolute; top: 77.5%; right: 10px; transform: translateY(-50%); cursor: pointer;"
                         onmousedown="mostrarContrasena()" 
                         onmouseup="ocultarContrasena()">

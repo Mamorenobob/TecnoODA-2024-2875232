@@ -59,6 +59,7 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Images/logo.png" type="image/png">
     <title>Cambiar Contraseña</title>
     <link rel="stylesheet" href="../Model/Css/Style.css">
     <style>
@@ -105,7 +106,7 @@ if (isset($_GET['id'])) {
             <h1>Cambiar Contraseña</h1>
             <div class="pw">
                        <input type="password" name="Password" id="contrasena" placeholder="Contraseña" required autocomplete="off">
-                       <img id="imagenOjo" src="../Images/OjoCerrado.jpeg" height="40px" width="3%" 
+                       <img id="imagenOjo" src="../Images/OjoCerrado.jpeg" height="8%" width="5%"
                         style="position: absolute; top: 21%;  left:53%;transform: translateY(-50%); cursor: pointer;     background: #f2f2f2;"
                         onmousedown="mostrarContrasena()" 
                         onmouseup="ocultarContrasena()">
@@ -113,7 +114,7 @@ if (isset($_GET['id'])) {
             <br>
             <div class="pw1">
                        <input type="password" name="ConfirmarPassword" id="contrasena1" placeholder="Confirmar Contraseña" required autocomplete="off">
-                       <img id="imagenOjo1" src="../Images/OjoCerrado.jpeg" height="40px" width="5px" 
+                       <img id="imagenOjo1" src="../Images/OjoCerrado.jpeg" height="8%" width="5%"
                         style="position: absolute; top: 29%; left:53%;transform: translateY(-50%); cursor: pointer;    background: #f2f2f2;"
                         onmousedown="mostrarContrasena1()" 
                         onmouseup="ocultarContrasena1()">
