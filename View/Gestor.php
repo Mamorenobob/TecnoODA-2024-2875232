@@ -21,8 +21,15 @@
     <link rel="icon" href="../Images/logo.png" type="image/png">
     <link rel="stylesheet" href="../Model/Css/Gestor.css">
     <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
+    
     <title>Gestor</title>
     <style>
+        a{
+            position: relative;
+            margin-bottom: 10px;
+           
+
+        }
         /* Estilos para el menú desplegable */
         .dropdown {
             position: relative;
@@ -60,6 +67,7 @@
     </style>
 </head>
 <body>
+    
     <nav>
         <div class="menu-toggle" id="menu-toggle">
             <span class="bar"></span>
@@ -124,8 +132,12 @@
             });
         });
     </script>
+    
+    <center><video controls muted src="../images/4.mp4" ></video></center>
+   
 </body>
 </html>
 <?php
     require '../View/Footer.php';
 ?>
+

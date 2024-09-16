@@ -55,6 +55,7 @@ switch ($_SESSION['Cargo']) {
 		></script>
     <title>Inventario</title>
     <style>
+        
         #formContainer {
             position: relative;
             width: 600px;
@@ -414,9 +415,7 @@ switch ($_SESSION['Cargo']) {
             document.getElementById('edit_descripcion').value = descripcion;
 
             document.getElementById('editFormContainer').classList.add('open');
-        }
-
-        
+        }        
     </script>
 </body>
 </html>

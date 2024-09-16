@@ -2,8 +2,12 @@
 
 :root {
 	--primary-color: #260062;
-	--background-color: #4c00ff;;
+	--background-color: #4c00ff;
 	--dark-color: #ffffff;
+}
+body {
+        background: linear-gradient(to bottom, #8162f4, #717171); /* Degradado de azul claro a blanco */
+	
 }
 
 html {
@@ -774,6 +778,7 @@ html {
 		font-size: 1.6rem;
 	}
 }
+
 
 
 

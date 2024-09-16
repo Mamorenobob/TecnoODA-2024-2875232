@@ -1,8 +1,11 @@
 
-        header {
+body {
+    background: linear-gradient(to bottom, #271a56, #ffffff); /* Degradado de azul claro a blanco */
+    font-family: Arial, sans-serif;
+}
+header {
     background-color: #4B0082; /* Fondo púrpura profundo */
 }
-
 .container-hero {
     display: flex;
     justify-content: center;
@@ -161,4 +164,11 @@ nav {
     .nav-list li {
         margin: 10px 0;
     }
+}
+video{
+ position: center;
+ width: 1500;
+ height:800px;
+ 
+
 }
