@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-09-2024 a las 06:11:43
+-- Tiempo de generación: 17-09-2024 a las 01:28:38
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -95,6 +95,13 @@ CREATE TABLE `enviado` (
   `estado_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `enviado`
+--
+
+INSERT INTO `enviado` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fecha`, `Marca`, `Codigo`, `Descripcion`, `Proveedor`, `estado_id`) VALUES
+(2, 'Nintendo Switch', 100, 5200000, 'Bogota', '2024-09-25', 'Nintendo', 2147483647, 'Que se encuentre en buen estado y en total funcionalidad', 'Nintendo', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -146,7 +153,8 @@ INSERT INTO `historial` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fech
 (5, '11', 1, 1, '1', '0111-01-01', '1', 1, '1', '1', 2),
 (6, 'hola', 1000, 15151, NULL, '5555-05-05', 'sasas', 1114, 'sasasa', 'hola', 1),
 (7, 'Mayonesa', 30, 60000, 'Calle #46 16', '2024-09-15', 'Pollito', 0, 'Sabrosa mayonesa', 'Unilevel', 2),
-(8, 'Mouse', 30000, 1300000, 'Calle 9 # 26 16', '2006-10-17', 'Sampicolino', 36, 'Un mouse delicoso', 'Katronix', 1);
+(8, 'Mouse', 30000, 1300000, 'Calle 9 # 26 16', '2006-10-17', 'Sampicolino', 36, 'Un mouse delicoso', 'Katronix', 1),
+(9, 'Nintendo Switch', 100, 5200000, 'Bogota', '2024-09-25', 'Nintendo', 2147483647, 'Que se encuentre en buen estado y en total funcionalidad', 'Nintendo', 1);
 
 -- --------------------------------------------------------
 
@@ -173,8 +181,6 @@ CREATE TABLE `pedido` (
 --
 
 INSERT INTO `pedido` (`ID`, `Nombre`, `Cantidad`, `Valor`, `Ubicacion`, `Fecha`, `Marca`, `Codigo`, `Descripcion`, `Proveedor`, `estado`) VALUES
-(21, 'Tablet', 1, 22222, 'Bogota', '1111-11-11', '1', 1, '1', '1', 'aceptado'),
-(22, 'Mauro', 12, 50000, 'Bogota', '2024-09-14', 'Lenovo', 1000001110, 'Pc de buen estado', 'Juan', ''),
 (23, 'Johan', 555, 44444, '44', '0004-04-04', '4', 44, '4', '4', ''),
 (24, 'hola', 1000, 15151, NULL, '5555-05-05', 'sasas', 1114, 'sasasa', 'hola', ''),
 (25, 'Mouse', 30000, 1300000, 'Calle 9 # 26 16', '2006-10-17', 'Sampicolino', 36, 'Un mouse delicoso', 'Katronix', 'aceptado');
@@ -242,7 +248,8 @@ INSERT INTO `registro` (`ID`, `Cargo`, `Usuario`, `P_Nombre`, `P_Apellido`, `Tip
 (10, 2, 'Demond', 'Ale', 'Mor', 7, '1456788410', 'mamoreno.bob@gmail.com', '321459782', '123456789', NULL, NULL, 0),
 (11, 8, 'ZDELMAXZ', 'Cris', 'Pam', 8, '156456165', 'camilo.milo177@gmail.com', '3215616', '123', NULL, NULL, 0),
 (12, 9, 'Pes', 'Pepe', 'Pasa', 7, '1561561', 'pepito@gmail.com', '321654987', '1', NULL, NULL, NULL),
-(13, 2, 'Ramona_CasaLimpia', 'Ramona', 'Sanchez', 9, '553319160', 'RamonaCasaLimpia_VivaColombia@', '3212995560', 'Ramona123', NULL, NULL, NULL);
+(13, 2, 'Ramona_CasaLimpia', 'Ramona', 'Sanchez', 9, '553319160', 'RamonaCasaLimpia_VivaColombia@', '3212995560', 'Ramona123', NULL, NULL, NULL),
+(14, 2, 'Pep', 'Pepito', 'Suarez', 8, '1155548420', 'Pep@gmail.com', '3111548790', '1', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -357,7 +364,7 @@ ALTER TABLE `documento`
 -- AUTO_INCREMENT de la tabla `enviado`
 --
 ALTER TABLE `enviado`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -369,13 +376,13 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -387,13 +394,13 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitudes`
 --
 ALTER TABLE `solicitudes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas

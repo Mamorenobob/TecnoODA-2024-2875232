@@ -247,68 +247,69 @@ if (!isset($_SESSION['Usuario']) || ($_SESSION['Cargo'] != 8)) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Mostrar productos solicitados
-            document.getElementById("productos-solicitados").addEventListener("click", function() {
-                var tabla = document.getElementById("tabla-productos");
-                tabla.style.display = "block";
-            });
+document.addEventListener("DOMContentLoaded", function() {
+    // Mostrar productos solicitados
+    document.getElementById("productos-solicitados").addEventListener("click", function() {
+        var tabla = document.getElementById("tabla-productos");
+        tabla.style.display = "block";
+    });
 
-            // Agregar eventos a los botones de aceptar y rechazar
-            document.querySelectorAll('.aceptar-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    var row = this.closest('tr');
-                    var id = row.getAttribute('data-id');
+    // Agregar eventos a los botones de aceptar y rechazar
+    document.querySelectorAll('.aceptar-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            var row = this.closest('tr');
+            var id = row.getAttribute('data-id');
 
-                    if (confirm("¿Estás seguro de que deseas aceptar este pedido?")) {
-                        // Llamada AJAX para aceptar el pedido
-                        fetch('procesar_pedido.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: `id=${id}&accion=aceptar`
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                alert("Pedido aceptado.");
-                                row.remove();
-                            } else {
-                                alert("Error al aceptar el pedido.");
-                            }
-                        });
+            if (confirm("¿Estás seguro de que deseas aceptar este pedido?")) {
+                // Llamada AJAX para aceptar el pedido
+                fetch('procesar_pedido.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `id=${id}&accion=aceptar`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Pedido aceptado.");
+                        row.remove();
+                    } else {
+                        alert("Error al aceptar el pedido: " + data.message);
                     }
                 });
-            });
-
-            document.querySelectorAll('.rechazar-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    var row = this.closest('tr');
-                    var id = row.getAttribute('data-id');
-
-                    if (confirm("¿Estás seguro de que deseas rechazar este pedido?")) {
-                        // Llamada AJAX para rechazar el pedido
-                        fetch('procesar_pedido.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: `id=${id}&accion=rechazar`
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                alert("Pedido rechazado.");
-                                row.remove();
-                            } else {
-                                alert("Error al rechazar el pedido.");
-                            }
-                        });
-                    }
-                });
-            });
+            }
         });
+    });
+
+    document.querySelectorAll('.rechazar-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            var row = this.closest('tr');
+            var id = row.getAttribute('data-id');
+
+            if (confirm("¿Estás seguro de que deseas rechazar este pedido?")) {
+                // Llamada AJAX para rechazar el pedido
+                fetch('procesar_pedido.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `id=${id}&accion=rechazar`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Pedido rechazado.");
+                        row.remove();
+                    } else {
+                        alert("Error al rechazar el pedido: " + data.message);
+                    }
+                });
+            }
+        });
+    });
+});
+
     </script>
     <br><br><br>
 </body>

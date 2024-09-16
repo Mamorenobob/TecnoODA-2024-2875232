@@ -176,12 +176,13 @@
             <p id="company-name">Nombre de la empresa: </p>
             <p id="address">Dirección: </p>
             <p id="phone">Teléfono: </p>
+            
         </div>
     </section>
 
     <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
     <script>
-        // Información de los proveedores (esto es solo un ejemplo)
+        // Información de los proveedores
         const providerData = {
             '1': {
                 companyName: 'Empresa A',

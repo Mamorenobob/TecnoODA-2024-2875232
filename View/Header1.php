@@ -187,7 +187,7 @@
                     <i class="fa-solid fa-headset"></i>
                     <div class="content-customer-support">
                         <span class="text">Soporte al cliente</span>
-                        <span class="number">123-456-7890</span>
+                        <span class="number">+57 321 363 9957</span>
                     </div>
                 </div>
 

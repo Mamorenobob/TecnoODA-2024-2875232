@@ -132,9 +132,7 @@
             });
         });
     </script>
-    
-    <center><video controls muted src="../images/4.mp4" ></video></center>
-   
+
 </body>
 </html>
 <?php

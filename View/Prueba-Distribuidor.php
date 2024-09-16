@@ -26,7 +26,7 @@
 <body>
     <main>
         <section id="EMPRESA 1">
-            <h2>EMPRESA 1</h2>
+            <h2>4MTIC SAS</h2>
             <p>Información del producto. <a href="../View/Mostrar_Enviados.php">Da click aqui</a></p>
             <img src="../Images/1.png" alt="Imagen del producto">
         </section>
