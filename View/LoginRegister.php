@@ -249,7 +249,7 @@
                     <input type="number" name="Tel" placeholder="Teléfono" required>
                     <div class="pw">
                        <input type="password" name="pw" id="contrasena1" placeholder="Contraseña" required autocomplete="off">
-                       <img id="imagenOjo" src="../Images/OjoCerrado.jpeg" height="8%" width="5%"
+                       <img id="imagenOjo" src="../Images/OjoCerrado.jpeg" height="5%" width="5%"
                         style="position: absolute; top: 77.5%; right: 10px; transform: translateY(-50%); cursor: pointer;"
                         onmousedown="mostrarContrasena()" 
                         onmouseup="ocultarContrasena()">

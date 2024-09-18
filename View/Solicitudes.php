@@ -108,20 +108,21 @@
                 <input type="text" id="nombre" name="nombre" required>
             </div>
             <div class="xFieldWrapper">
-                <label for="cantidad">Cantidad:</label>
-                <input type="number" id="cantidad" name="cantidad" required>
-            </div>
-            <div class="xFieldWrapper">
-                <label for="valor">Valor:</label>
-                <input type="number" id="valor" name="valor" step="0.01" required>
-            </div>
-            <div class="xFieldWrapper">
                 <label for="ubicacion">Ubicación:</label>
                 <input type="text" id="ubicacion" name="ubicacion" required>
             </div>
             <div class="xFieldWrapper">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" required oninput="updateResult()"><br><br>
+            </div> 
+            <div class="xFieldWrapper">
+                <label for="valor">Valor Unitario:</label>
+                <input type="text" id="amount" name="valor" required oninput="formatCurrency(this); updateResult()"><br><br>
+            </div>   
+                <div class="result" id="result">Total a Pagar: 0 COP</div>
+            <div class="xFieldWrapper">
                 <label for="fecha">Fecha:</label>
-                <input type="date" id="fecha" name="fecha" required>
+                <input type="date" id="fecha" name="fecha" required min=""><br><br>
             </div>
             <div class="xFieldWrapper">
                 <label for="marca">Marca:</label>
@@ -146,3 +147,33 @@
     <script src="Solicitudes.js"></script>
 </body>
 </html>
+<script>
+    function formatCurrency(input) {
+            // Eliminar cualquier caracter que no sea número
+            const value = input.value.replace(/\D/g, '');
+
+            // Formatear como moneda
+            const formattedValue = new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+            }).format(value / 100); // Dividimos entre 100 para manejar centavos
+
+            // Quitar "COP" del inicio y ajustar el valor
+            input.value = formattedValue.replace('COP', '').trim();
+        }
+
+        function updateResult() {
+            const cantidad = parseInt(document.getElementById('cantidad').value, 10) || 0;
+            const valorUnitario = parseInt(document.getElementById('amount').value.replace(/\D/g, ''), 10) || 0;
+            const resultado = cantidad * valorUnitario;
+
+            document.getElementById('result').textContent = `Total a Pagar: ${new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+            }).format(resultado / 100)}`;
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById("fecha").setAttribute('min', today);
+       });
+</script>
